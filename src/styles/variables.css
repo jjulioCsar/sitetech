@@ -1,0 +1,40 @@
+:root {
+  /* Brand Colors - Standardized */
+  --color-brand-blue-dark: #0b3992;
+  --color-brand-green: #d6dd36;
+
+  --color-primary: var(--color-brand-blue-dark);
+  --color-secondary: #f8fafc;
+  /* Softer gray */
+  --color-accent: var(--color-brand-green);
+  --color-dark: #0f172a;
+  --color-light: #ffffff;
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing & Layout */
+  --spacing-section: 120px;
+  --container-width: 1600px;
+  --border-radius: 40px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-secondary);
+  color: var(--color-dark);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+}
