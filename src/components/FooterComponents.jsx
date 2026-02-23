@@ -79,7 +79,7 @@ export const HumanCapital = () => {
                                 width: '100%',
                                 height: '100%',
                                 objectFit: 'cover',
-                                transform: 'rotate(90deg) scale(1.3)',
+                                transform: 'rotate(270deg) scale(1.3)',
                                 objectPosition: 'center'
                             }}
                             loading="lazy"
