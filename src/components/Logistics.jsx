@@ -115,7 +115,7 @@ const Logistics = () => {
                                     Entendemos que a embalagem é o último passo antes do seu produto chegar ao consumidor, e o cumprimento de prazos é vital para o sucesso do seu negócio. Por isso, a <strong>Techplast</strong> não terceiriza a sua tranquilidade.
                                 </p>
                                 <p>
-                                    Contamos com uma frota própria moderna e uma equipe de motoristas rigorosamente treinados, especializados no manuseio de produtos plásticos. Esse controle total sobre a distribuição nos permite garantir que cada pedido chegue à sua fábrica com integridade absoluta, sem avarias e rigorosamente dentro do cronograma combinado.
+                                    Com uma frota própria de mais de 40 caminhões e uma equipe de motoristas rigorosamente treinados, especializados no manuseio de produtos plásticos. Esse controle total sobre a distribuição nos permite garantir que cada pedido chegue à sua fábrica com integridade absoluta, sem avarias e rigorosamente dentro do cronograma combinado.
                                 </p>
                                 <p style={{
                                     fontSize: '1.25rem',
