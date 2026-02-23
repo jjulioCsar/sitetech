@@ -42,6 +42,7 @@ const StrategicPillars = () => {
                                 hidden: { opacity: 0, scale: 0.95 },
                                 visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
                             }}
+                            whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
                             style={{
                                 background: 'var(--color-brand-blue-dark)',
                                 color: 'white',
@@ -52,7 +53,8 @@ const StrategicPillars = () => {
                                 flexDirection: 'column',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                boxShadow: '0 10px 30px rgba(11, 57, 146, 0.1)'
+                                boxShadow: '0 10px 30px rgba(11, 57, 146, 0.1)',
+                                cursor: 'default'
                             }}
                         >
                             <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 600</div>
@@ -63,10 +65,11 @@ const StrategicPillars = () => {
                         <motion.div
                             variants={{
                                 hidden: { opacity: 0, scale: 0.95 },
-                                visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+                                visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.1 } }
                             }}
+                            whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
                             style={{
-                                background: 'var(--color-brand-green)',
+                                background: 'white',
                                 color: 'var(--color-brand-blue-dark)',
                                 padding: '40px 30px',
                                 borderRadius: '24px',
@@ -75,19 +78,22 @@ const StrategicPillars = () => {
                                 flexDirection: 'column',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                boxShadow: '0 10px 30px rgba(214, 221, 54, 0.1)'
+                                border: '1px solid rgba(0,0,0,0.05)',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+                                cursor: 'default'
                             }}
                         >
-                            <div style={{ fontSize: 'clamp(2rem, 3.5vw, 2.5rem)', fontWeight: 900, lineHeight: 1 }}>200.000.000</div>
-                            <div style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Embalagens / Ano</div>
+                            <div style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 900, lineHeight: 1 }}>200.000.000</div>
+                            <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Embalagens/Ano</div>
                         </motion.div>
 
                         {/* Stats Card 3 */}
                         <motion.div
                             variants={{
                                 hidden: { opacity: 0, scale: 0.95 },
-                                visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+                                visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.2 } }
                             }}
+                            whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
                             style={{
                                 background: 'var(--color-brand-blue-dark)',
                                 color: 'white',
@@ -98,7 +104,8 @@ const StrategicPillars = () => {
                                 flexDirection: 'column',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                boxShadow: '0 10px 30px rgba(11, 57, 146, 0.1)'
+                                boxShadow: '0 10px 30px rgba(11, 57, 146, 0.1)',
+                                cursor: 'default'
                             }}
                         >
                             <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 300</div>
@@ -109,10 +116,11 @@ const StrategicPillars = () => {
                         <motion.div
                             variants={{
                                 hidden: { opacity: 0, scale: 0.95 },
-                                visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+                                visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.3 } }
                             }}
+                            whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
                             style={{
-                                background: 'var(--color-brand-green)',
+                                background: 'white',
                                 color: 'var(--color-brand-blue-dark)',
                                 padding: '40px 30px',
                                 borderRadius: '24px',
@@ -121,11 +129,13 @@ const StrategicPillars = () => {
                                 flexDirection: 'column',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                boxShadow: '0 10px 30px rgba(214, 221, 54, 0.1)'
+                                border: '1px solid rgba(0,0,0,0.05)',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+                                cursor: 'default'
                             }}
                         >
                             <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 18</div>
-                            <div style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Estados Atendidos</div>
+                            <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Estados Atendidos</div>
                         </motion.div>
                     </motion.div>
                 </div>

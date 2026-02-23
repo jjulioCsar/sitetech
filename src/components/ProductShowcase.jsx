@@ -114,23 +114,28 @@ const ProductShowcase = () => {
                         flexWrap: 'wrap'
                     }}>
                         {categories.map((cat, i) => (
-                            <button
+                            <motion.button
                                 key={i}
                                 onClick={() => { setLineIndex(i); setImageIndex(0); }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                                 style={{
-                                    padding: '12px 25px',
-                                    borderRadius: '50px',
+                                    padding: '15px 30px',
+                                    borderRadius: '12px',
                                     border: 'none',
-                                    background: i === lineIndex ? 'var(--color-brand-blue-dark)' : '#f1f5f9',
-                                    color: i === lineIndex ? 'white' : '#64748b',
-                                    fontSize: '0.9rem',
+                                    background: lineIndex === i ? 'var(--color-brand-blue-dark)' : 'white',
+                                    color: lineIndex === i ? 'white' : 'var(--color-brand-blue-dark)',
                                     fontWeight: 800,
+                                    fontSize: '0.85rem',
+                                    letterSpacing: '1px',
                                     cursor: 'pointer',
-                                    transition: 'all 0.3s'
+                                    transition: 'background 0.3s, color 0.3s',
+                                    boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+                                    textTransform: 'uppercase'
                                 }}
                             >
                                 {cat.title}
-                            </button>
+                            </motion.button>
                         ))}
                     </div>
 
