@@ -39,19 +39,51 @@ export const HumanCapital = () => {
                         whileHover={{ scale: 1.01 }}
                         style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', background: '#f1f5f9' }}
                     >
-                        <img src={team1} alt="Equipe 1" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }} loading="lazy" />
+                        <img
+                            src={team1}
+                            alt="Equipe 1"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                transform: 'rotate(90deg) scale(1.3)',
+                                objectPosition: 'center'
+                            }}
+                            loading="lazy"
+                        />
                     </motion.div>
                     <motion.div
                         whileHover={{ scale: 1.01 }}
                         style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', background: '#f1f5f9' }}
                     >
-                        <img src={team2} alt="Equipe 2" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} loading="lazy" />
+                        <img
+                            src={team2}
+                            alt="Equipe 2"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                objectPosition: 'center 20%'
+                            }}
+                            loading="lazy"
+                        />
                     </motion.div>
                     <motion.div
                         whileHover={{ scale: 1.01 }}
                         style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', background: '#f1f5f9' }}
                     >
-                        <img src={team3} alt="Equipe 3" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }} loading="lazy" />
+                        <img
+                            src={team3}
+                            alt="Equipe 3"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                transform: 'rotate(90deg) scale(1.3)',
+                                objectPosition: 'center'
+                            }}
+                            loading="lazy"
+                        />
                     </motion.div>
                 </div>
             </div>
