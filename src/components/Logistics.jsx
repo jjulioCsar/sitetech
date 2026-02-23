@@ -4,6 +4,24 @@ import { Truck, Warehouse, MapPin } from 'lucide-react';
 import mapaBrasilImg from '../assets/mapa-brasil.png';
 
 import fleetImg from '../assets/team/caminhoes.webp';
+import { useState } from 'react';
+
+const ImageWithFade = ({ src, alt, style }) => {
+    const [loaded, setLoaded] = useState(false);
+    return (
+        <motion.img
+            src={src}
+            alt={alt}
+            onLoad={() => setLoaded(true)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: loaded ? 1 : 0 }}
+            transition={{ duration: 0.6 }}
+            loading="lazy"
+            decoding="async"
+            style={{ ...style }}
+        />
+    );
+};
 
 const Logistics = () => {
     return (
@@ -53,17 +71,15 @@ const Logistics = () => {
 
                         {/* Brazil Map Side */}
                         <div style={{ position: 'relative', height: 'clamp(400px, 50vw, 750px)', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <img
+                            <ImageWithFade
                                 src={mapaBrasilImg}
                                 alt="Mapa do Brasil"
-                                loading="lazy"
-                                decoding="async"
                                 style={{
                                     width: '100%',
                                     height: '100%',
                                     objectFit: 'contain',
                                     filter: 'drop-shadow(0 20px 40px rgba(11, 57, 146, 0.15))',
-                                    transform: 'scale(1.1)'
+                                    transform: 'scale(1.05)'
                                 }}
                             />
                             {/* Maceió Indicator overlay */}
@@ -139,11 +155,9 @@ const Logistics = () => {
                                 position: 'relative'
                             }}
                         >
-                            <img
+                            <ImageWithFade
                                 src={fleetImg}
                                 alt="Frota Techplast"
-                                loading="lazy"
-                                decoding="async"
                                 style={{
                                     width: '100%',
                                     height: '100%',

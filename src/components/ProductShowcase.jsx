@@ -208,17 +208,9 @@ const ProductShowcase = () => {
                                     transition={{ duration: 0.5, ease: "easeOut" }}
                                     style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                                 >
-                                    <img
+                                    <ImageWithFade
                                         src={categories[lineIndex].images[imageIndex]}
                                         alt="Product"
-                                        loading="lazy"
-                                        decoding="async"
-                                        style={{
-                                            maxWidth: '120%',
-                                            maxHeight: '120%',
-                                            objectFit: 'contain',
-                                            filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.15))'
-                                        }}
                                     />
                                 </motion.div>
                             </AnimatePresence>
@@ -262,6 +254,29 @@ const imgNavStyle = {
     background: 'white', border: '1px solid #e2e8f0',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
+};
+
+const ImageWithFade = ({ src, alt }) => {
+    const [loaded, setLoaded] = useState(false);
+
+    return (
+        <motion.img
+            src={src}
+            alt={alt}
+            onLoad={() => setLoaded(true)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: loaded ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+            loading="lazy"
+            decoding="async"
+            style={{
+                maxWidth: '120%',
+                maxHeight: '120%',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.15))'
+            }}
+        />
+    );
 };
 
 export default ProductShowcase;

@@ -4,6 +4,24 @@ import { Palette, PenTool, Layers } from 'lucide-react';
 
 import moldesImg from '../assets/moldes.webp';
 import rotulosImg from '../assets/rotulos.png';
+import { useState } from 'react';
+
+const ImageWithFade = ({ src, alt, style }) => {
+    const [loaded, setLoaded] = useState(false);
+    return (
+        <motion.img
+            src={src}
+            alt={alt}
+            onLoad={() => setLoaded(true)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: loaded ? 1 : 0 }}
+            transition={{ duration: 0.6 }}
+            loading="lazy"
+            decoding="async"
+            style={{ ...style }}
+        />
+    );
+};
 
 const Customization = () => {
     return (
@@ -39,11 +57,9 @@ const Customization = () => {
                                 boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
                             }}
                         >
-                            <img
+                            <ImageWithFade
                                 src={rotulosImg}
                                 alt="Tipos de Rótulos"
-                                loading="lazy"
-                                decoding="async"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                         </motion.div>
@@ -112,11 +128,9 @@ const Customization = () => {
                                 boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
                             }}
                         >
-                            <img
+                            <ImageWithFade
                                 src={moldesImg}
                                 alt="Desenvolvimento de Moldes"
-                                loading="lazy"
-                                decoding="async"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                         </motion.div>
