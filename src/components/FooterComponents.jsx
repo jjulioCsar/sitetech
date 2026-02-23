@@ -127,8 +127,8 @@ export const Footer = () => {
                         <h4 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--color-brand-green)', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '20px' }}>Redes Sociais</h4>
                         <div style={{ display: 'flex', gap: '15px' }}>
                             {[
-                                { icon: Instagram, url: '#' },
-                                { icon: Linkedin, url: '#' }
+                                { icon: Instagram, url: 'https://www.instagram.com/techplastembalagens/' },
+                                { icon: Linkedin, url: 'https://www.linkedin.com/company/techplastembalagens/posts/?feedView=all' }
                             ].map((item, i) => (
                                 <motion.a
                                     key={i}
