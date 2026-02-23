@@ -61,7 +61,7 @@ const Hero = () => {
                         letterSpacing: '2px',
                         fontSize: 'max(0.7rem, 2vw)'
                     }}>
-                        A REFERÊNCIA REGIONAL
+                        A REFERÊNCIA NACIONAL
                     </div>
                 </motion.div>
 
