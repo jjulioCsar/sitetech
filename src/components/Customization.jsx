@@ -3,7 +3,7 @@ import SectionWrapper from './ui/SectionWrapper';
 import { Palette, PenTool, Layers } from 'lucide-react';
 
 import moldesImg from '../assets/moldes.webp';
-import rotulosImg from '../assets/rotulos.jpg';
+import rotulosImg from '../assets/rotulos.png';
 
 const Customization = () => {
     return (
