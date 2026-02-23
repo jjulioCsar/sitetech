@@ -108,10 +108,16 @@ const Logistics = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* FULL WIDTH FLEET SECTION */}
-            <div style={{ background: 'var(--color-brand-blue-dark)', padding: '100px 0' }}>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.8 }}
+                style={{ background: 'var(--color-brand-blue-dark)', padding: '100px 0' }}
+            >
                 <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 24px' }}>
                     <div className="flex-responsive" style={{ gap: '60px', alignItems: 'center', color: 'white' }}>
                         <div style={{ flex: 1.1 }}>
