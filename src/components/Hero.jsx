@@ -124,9 +124,9 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 2, opacity: { duration: 1 } }}
-                style={{ position: 'absolute', bottom: '40px', color: '#d6dd36' }}
+                style={{ position: 'absolute', bottom: '40px' }}
             >
-                <ArrowDown size={32} />
+                <ArrowDown size={32} color="#d6dd36" />
             </motion.div>
 
         </section>
