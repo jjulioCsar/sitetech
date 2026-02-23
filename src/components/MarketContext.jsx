@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
+import { useLanguage } from '../context/LanguageContext';
 
 const MarketContext = () => {
+    const { t } = useLanguage();
+
     return (
         <SectionWrapper id="dna" fluid={true}>
             <div style={{
@@ -32,7 +35,7 @@ const MarketContext = () => {
                             fontSize: '0.9rem',
                             opacity: 0.8
                         }}>
-                            Apresentação Institucional
+                            {t('market.badge')}
                         </span>
                         <h2 style={{
                             fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
@@ -42,12 +45,13 @@ const MarketContext = () => {
                             lineHeight: 1.1,
                             fontFamily: 'var(--font-heading)'
                         }}>
-                            O DNA da Marca
+                            {t('market.title')}
                         </h2>
 
-                        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', lineHeight: 1.5, color: '#475569', margin: '0 auto' }}>
-                            Nossa missão é oferecer soluções eficientes e personalizadas em embalagens, garantindo a total satisfação dos nossos clientes. A <strong>Techplast</strong> nasceu com o compromisso de proteger a integridade do seu produto por meio de materiais seguros, resistentes e sustentáveis.
-                        </p>
+                        <p
+                            style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', lineHeight: 1.5, color: '#475569', margin: '0 auto' }}
+                            dangerouslySetInnerHTML={{ __html: t('market.description') }}
+                        />
                     </motion.div>
                 </div>
             </div>

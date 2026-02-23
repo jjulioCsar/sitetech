@@ -3,8 +3,11 @@ import SectionWrapper from './ui/SectionWrapper';
 import moldesImg from '../assets/moldes.webp';
 import rotulosImg from '../assets/rotulos.png';
 import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Customization = () => {
+    const { t } = useLanguage();
+
     return (
         <SectionWrapper id="diferenciais">
             <motion.div
@@ -31,9 +34,9 @@ const Customization = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <span style={{ color: 'var(--color-brand-blue-dark)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}>Personalização Premium</span>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', margin: '20px 0', fontFamily: 'var(--font-heading)' }}>Rotulagem Integrada</h2>
-                        <p style={{ fontSize: '1.2rem', color: '#44546a', lineHeight: 1.6 }}>Oferecemos a aplicação de rótulos (sleeve ou adesivo) em linha, garantindo que seu produto saia da fábrica pronto para gôndola. Elimine etapas logísticas e reduza seus custos de produção.</p>
+                        <span style={{ color: 'var(--color-brand-blue-dark)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}>{t('customization.label_integration')}</span>
+                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', margin: '20px 0', fontFamily: 'var(--font-heading)' }}>{t('customization.title_integration')}</h2>
+                        <p style={{ fontSize: '1.2rem', color: '#44546a', lineHeight: 1.6 }}>{t('customization.desc_integration')}</p>
                     </motion.div>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
@@ -56,9 +59,9 @@ const Customization = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <span style={{ color: 'var(--color-brand-blue-dark)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}>Desenvolvimento</span>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', margin: '20px 0', fontFamily: 'var(--font-heading)' }}>Moldes Exclusivos</h2>
-                        <p style={{ fontSize: '1.2rem', color: '#44546a', lineHeight: 1.6 }}>Nossa engenharia trabalha na criação de designs exclusivos para sua marca. Desenvolvemos moldes personalizados que unem estética premium à máxima performance técnica no sopro.</p>
+                        <span style={{ color: 'var(--color-brand-blue-dark)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}>{t('customization.label_development')}</span>
+                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', margin: '20px 0', fontFamily: 'var(--font-heading)' }}>{t('customization.title_development')}</h2>
+                        <p style={{ fontSize: '1.2rem', color: '#44546a', lineHeight: 1.6 }}>{t('customization.desc_development')}</p>
                     </motion.div>
                     <motion.div
                         whileHover={{ scale: 1.02 }}

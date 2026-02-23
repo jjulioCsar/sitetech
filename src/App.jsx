@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense, lazy } from 'react'
+import { LanguageProvider } from './context/LanguageContext'
+import LanguageSwitcher from './components/ui/LanguageSwitcher'
 import Lenis from 'lenis'
 import { motion, useScroll, useSpring } from 'framer-motion'
 
@@ -44,35 +46,39 @@ function App() {
   }, [])
 
   return (
-    <div className="app-container" style={{ position: 'relative', overflow: 'hidden' }}>
+    <LanguageProvider>
+      <div className="app-container" style={{ position: 'relative', overflow: 'hidden' }}>
 
-      {/* Scroll Progress Bar */}
-      <motion.div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '6px',
-          background: 'var(--color-brand-green)',
-          transformOrigin: '0%',
-          scaleX,
-          zIndex: 1000
-        }}
-      />
+        <LanguageSwitcher />
 
-      <main style={{ position: 'relative', zIndex: 1, marginTop: '0px' }}>
-        <Hero />
-        <MarketContext />
-        <StrategicPillars />
-        <ProductShowcase />
-        <Customization />
-        <Logistics />
-        <HumanCapital />
-      </main>
+        {/* Scroll Progress Bar */}
+        <motion.div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '6px',
+            background: 'var(--color-brand-green)',
+            transformOrigin: '0%',
+            scaleX,
+            zIndex: 1000
+          }}
+        />
 
-      <Footer />
-    </div>
+        <main style={{ position: 'relative', zIndex: 1, marginTop: '0px' }}>
+          <Hero />
+          <MarketContext />
+          <StrategicPillars />
+          <ProductShowcase />
+          <Customization />
+          <Logistics />
+          <HumanCapital />
+        </main>
+
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }
 

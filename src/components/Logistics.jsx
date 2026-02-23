@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
 import { Truck, Warehouse, MapPin, Box, Globe as GlobeIcon, Instagram, Linkedin, Mail } from 'lucide-react';
 import mapaBrasilImg from '../assets/mapa-brasil.png';
+import { useLanguage } from '../context/LanguageContext';
 
 import fleetImg from '../assets/team/caminhoes.webp';
 import { useState } from 'react';
@@ -37,6 +38,8 @@ const ImageWithFade = ({ src, alt, style }) => {
 };
 
 const Logistics = () => {
+    const { t } = useLanguage();
+
     return (
         <SectionWrapper id="logistica" fluid={true}>
             <motion.div
@@ -53,10 +56,10 @@ const Logistics = () => {
                 <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 24px' }}>
                     <header style={{ marginBottom: '40px', textAlign: 'left', maxWidth: '1000px' }}>
                         <span style={{ color: 'var(--color-brand-green)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 800, fontSize: '0.9rem' }}>
-                            Poder Logístico & Distribuição Nacional
+                            {t('logistics.badge')}
                         </span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, marginTop: '20px', color: 'var(--color-brand-blue-dark)', lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}>
-                            Eficiência que atravessa fronteiras.
+                            {t('logistics.title')}
                         </h2>
                     </header>
 
@@ -68,9 +71,9 @@ const Logistics = () => {
                                     <Box size={30} color="var(--color-brand-blue-dark)" />
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--color-brand-blue-dark)', marginBottom: '10px', fontFamily: 'var(--font-heading)' }}>Armazenagem Estratégica</h3>
+                                    <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--color-brand-blue-dark)', marginBottom: '10px', fontFamily: 'var(--font-heading)' }}>{t('logistics.storage_title')}</h3>
                                     <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.5 }}>
-                                        Além de um amplo e moderno parque fabril possuímos um centro de distribuição próprio com ampla área de estocagem inteligente, garantindo despacho imediato.
+                                        {t('logistics.storage_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -80,9 +83,9 @@ const Logistics = () => {
                                     <GlobeIcon size={30} color="var(--color-brand-blue-dark)" />
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--color-brand-blue-dark)', marginBottom: '10px', fontFamily: 'var(--font-heading)' }}>Distribuição Nacional</h3>
+                                    <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--color-brand-blue-dark)', marginBottom: '10px', fontFamily: 'var(--font-heading)' }}>{t('logistics.dist_title')}</h3>
                                     <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.5 }}>
-                                        Como um dos principais hubs de embalagens do Nordeste, nossa logística atende todo o Brasil com agilidade.
+                                        {t('logistics.dist_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -131,7 +134,7 @@ const Logistics = () => {
                                     display: 'block',
                                     marginBottom: '10px'
                                 }}>
-                                    Logística Própria
+                                    {t('logistics.own_fleet_label')}
                                 </span>
                                 <h2 style={{
                                     fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
@@ -140,7 +143,7 @@ const Logistics = () => {
                                     fontFamily: 'var(--font-heading)',
                                     color: 'white'
                                 }}>
-                                    Excelência em cada quilômetro.
+                                    {t('logistics.own_fleet_title')}
                                 </h2>
                             </div>
 
@@ -152,19 +155,15 @@ const Logistics = () => {
                                 gap: '20px',
                                 maxWidth: '650px'
                             }}>
-                                <p>
-                                    Entendemos que a embalagem é o último passo antes do seu produto chegar ao consumidor, e o cumprimento de prazos é vital para o sucesso do seu negócio. Por isso, a <strong>Techplast</strong> não terceiriza a sua tranquilidade.
-                                </p>
-                                <p>
-                                    Com uma frota própria de mais de 40 caminhões e uma equipe de motoristas rigorosamente treinados, especializados no manuseio de produtos plásticos. Esse controle total sobre a distribuição nos permite garantir que cada pedido chegue à sua fábrica com integridade absoluta, sem avarias e rigorosamente dentro do cronograma combinado.
-                                </p>
+                                <p dangerouslySetInnerHTML={{ __html: t('logistics.own_fleet_p1') }} />
+                                <p>{t('logistics.own_fleet_p2')}</p>
                                 <p style={{
                                     fontSize: '1.25rem',
                                     fontWeight: 700,
                                     color: 'var(--color-brand-green)',
                                     marginTop: '10px'
                                 }}>
-                                    Mais que uma entrega, oferecemos a segurança de que sua operação nunca irá parar.
+                                    {t('logistics.own_fleet_highlight')}
                                 </p>
                             </div>
                         </div>

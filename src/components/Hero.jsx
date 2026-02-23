@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-
+import { useLanguage } from '../context/LanguageContext';
 import logoImg from '../assets/logo.png';
 
 const Hero = () => {
+    const { t } = useLanguage();
+
     return (
         <section style={{
             minHeight: '100vh',
@@ -20,7 +22,7 @@ const Hero = () => {
             {/* LOGO WATERMARK BACKGROUND */}
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.08 }} // Reduced for less interference
+                animate={{ opacity: 0.08 }}
                 transition={{ duration: 1.5 }}
                 style={{
                     position: 'absolute',
@@ -65,7 +67,7 @@ const Hero = () => {
                         letterSpacing: '2px',
                         fontSize: 'max(0.7rem, 2vw)'
                     }}>
-                        A REFERÊNCIA NACIONAL
+                        {t('hero.badge')}
                     </div>
                 </motion.div>
 
@@ -85,10 +87,10 @@ const Hero = () => {
                         fontSize: 'clamp(2.5rem, 8vw, 6rem)'
                     }}
                 >
-                    Há mais de <span style={{
+                    {t('hero.headline_part1')}<span style={{
                         color: 'var(--color-brand-green)',
-                        textShadow: '0 2px 4px rgba(11, 57, 146, 0.1)' // Subtle shadow for contrast
-                    }}>15 anos</span><br />
+                        textShadow: '0 2px 4px rgba(11, 57, 146, 0.1)'
+                    }}>{t('hero.headline_part2')}</span><br />
                     <span style={{
                         background: 'linear-gradient(to right, var(--color-brand-blue-dark), var(--color-brand-blue-light))',
                         WebkitBackgroundClip: 'text',
@@ -97,7 +99,7 @@ const Hero = () => {
                         fontFamily: 'var(--font-heading)',
                         letterSpacing: '-0.04em'
                     }}>
-                        Moldando o Futuro
+                        {t('hero.headline_part3')}
                     </span>
                 </motion.h1>
 
@@ -115,7 +117,7 @@ const Hero = () => {
                         fontWeight: 400
                     }}
                 >
-                    Uma empresa genuinamente alagoana que une tradição, inovação e solidez para ser a força motriz por trás de grandes marcas.
+                    {t('hero.subheadline')}
                 </motion.p>
 
             </div>

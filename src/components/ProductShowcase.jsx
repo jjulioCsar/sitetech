@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Package, Shield, Truck, Droplets, FlaskConical, Filter } from 'lucide-react';
 import SectionWrapper from './ui/SectionWrapper';
+import { useLanguage } from '../context/LanguageContext';
 
 // --- LINHA ALIMENTICIA IMAGES ---
 import imgAlim1 from '../assets/arquivos/ALIMENTICIA/PEAD YOGURT - 180ML.jpg';
@@ -52,32 +53,33 @@ import imgPref9 from '../assets/arquivos/PREFORMAS/_DSC0086.jpg';
 import imgPref10 from '../assets/arquivos/PREFORMAS/_DSC0087.jpg';
 
 const ProductShowcase = () => {
+    const { t } = useLanguage();
     const [lineIndex, setLineIndex] = useState(0);
     const [imageIndex, setImageIndex] = useState(0);
 
     const categories = [
         {
-            title: "LINHA ALIMENTÍCIA",
-            subtitle: "Segurança e Conservação",
-            description: "Embalagens PET e PEAD certificadas para alimentos. Ideal para lácteos, molhos e condimentos, garantindo barreira contra contaminações e preservação total.",
+            title: t('products.categories.alimenticia.title'),
+            subtitle: t('products.categories.alimenticia.subtitle'),
+            description: t('products.categories.alimenticia.description'),
             images: [imgAlim1, imgAlim2, imgAlim3, imgAlim4, imgAlim5, imgAlim6, imgAlim7, imgAlim8, imgAlim9, imgAlim10]
         },
         {
-            title: "LINHA FÁRMACOS",
-            subtitle: "Higiene e Proteção",
-            description: "Soluções seguras para o setor farmacêutico e de cosméticos. Potes de diversos tamanhos e frascos de álcool desenvolvidos sob rigorosos padrões de qualidade.",
+            title: t('products.categories.farmacos.title'),
+            subtitle: t('products.categories.farmacos.subtitle'),
+            description: t('products.categories.farmacos.description'),
             images: [imgFarm1, imgFarm2, imgFarm3, imgFarm4, imgFarm5, imgFarm6, imgFarm7, imgFarm8, imgFarm9, imgFarm10]
         },
         {
-            title: "LINHA SANEANTES",
-            subtitle: "Resistência Química",
-            description: "Bombonas e frascos de alta performance para produtos de limpeza, detergentes e desinfetantes. Variabilidade de cores e extrema resistência estrutural.",
+            title: t('products.categories.saneantes.title'),
+            subtitle: t('products.categories.saneantes.subtitle'),
+            description: t('products.categories.saneantes.description'),
             images: [imgSan1, imgSan2, imgSan3, imgSan4, imgSan5, imgSan6, imgSan7, imgSan8, imgSan9, imgSan10]
         },
         {
-            title: "PREFORMAS",
-            subtitle: "Inovação em Sopros",
-            description: "Preformas de alta precisão prontas para o sopro industrial. Disponíveis em diversas gramaturas e bocais para atender a sua demanda de produção.",
+            title: t('products.categories.preformas.title'),
+            subtitle: t('products.categories.preformas.subtitle'),
+            description: t('products.categories.preformas.description'),
             images: [imgPref1, imgPref2, imgPref3, imgPref4, imgPref5, imgPref6, imgPref7, imgPref8, imgPref9, imgPref10]
         }
     ];

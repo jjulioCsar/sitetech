@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
 import { Users, Package, Map, Globe } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const StrategicPillars = () => {
+    const { t } = useLanguage();
+
     return (
         <SectionWrapper id="strategy" fluid={true}>
             <div style={{ background: 'white', padding: '120px 0' }}>
@@ -11,10 +14,10 @@ const StrategicPillars = () => {
                     {/* SECTION: NÚMEROS E PERFORMANCE */}
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <span style={{ color: 'var(--color-brand-green)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>
-                            Tecnologia e Know-how
+                            {t('pillars.badge')}
                         </span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: 'var(--color-brand-blue-dark)', marginTop: '20px', fontWeight: 900, lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}>
-                            O que nos coloca à frente
+                            {t('pillars.title')}
                         </h2>
                     </div>
 
@@ -60,7 +63,7 @@ const StrategicPillars = () => {
                         >
                             <Users size={32} style={{ marginBottom: '20px', opacity: 0.2 }} />
                             <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 600</div>
-                            <div style={{ opacity: 0.8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Clientes Ativos</div>
+                            <div style={{ opacity: 0.8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.clients')}</div>
                         </motion.div>
 
                         {/* Stats Card 2 */}
@@ -86,7 +89,7 @@ const StrategicPillars = () => {
                         >
                             <Package size={32} style={{ marginBottom: '20px', opacity: 0.3 }} />
                             <div style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 900, lineHeight: 1 }}>200.000.000</div>
-                            <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Embalagens/Ano</div>
+                            <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.packaging')}</div>
                         </motion.div>
 
                         {/* Stats Card 3 */}
@@ -113,7 +116,7 @@ const StrategicPillars = () => {
                         >
                             <Map size={32} style={{ marginBottom: '20px', opacity: 0.2 }} />
                             <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 300</div>
-                            <div style={{ opacity: 0.8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Cidades Atendidas</div>
+                            <div style={{ opacity: 0.8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.cities')}</div>
                         </motion.div>
 
                         {/* Stats Card 4 */}
@@ -139,7 +142,7 @@ const StrategicPillars = () => {
                         >
                             <Globe size={32} style={{ marginBottom: '20px', opacity: 0.3 }} />
                             <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 18</div>
-                            <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>Estados Atendidos</div>
+                            <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.states')}</div>
                         </motion.div>
                     </motion.div>
                 </div>
