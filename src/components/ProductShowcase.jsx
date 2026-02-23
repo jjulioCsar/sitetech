@@ -15,6 +15,30 @@ import imgAlim8 from '../assets/arquivos/ALIMENTICIA/PET PIMENTA.jpg';
 import imgAlim9 from '../assets/arquivos/ALIMENTICIA/PET YOGURT - 900ML.jpg';
 import imgAlim10 from '../assets/arquivos/ALIMENTICIA/PET YOGURT - BATALHA.jpg';
 
+// --- LINHA FARMACOS IMAGES ---
+import imgFarm1 from '../assets/arquivos/FARMACOS/LINHA PET ALCOOL.jpg';
+import imgFarm2 from '../assets/arquivos/FARMACOS/LINHA POTES PCO 38.jpg';
+import imgFarm3 from '../assets/arquivos/FARMACOS/LINHA POTES PCO 63.jpg';
+import imgFarm4 from '../assets/arquivos/FARMACOS/PEAD POTE - 60ML.jpg';
+import imgFarm5 from '../assets/arquivos/FARMACOS/PEAD POTE 60ML.jpg';
+import imgFarm6 from '../assets/arquivos/FARMACOS/PEAD XAROPE 200ML.jpg';
+import imgFarm7 from '../assets/arquivos/FARMACOS/PET COSMETICOS - 250ML.jpg';
+import imgFarm8 from '../assets/arquivos/FARMACOS/PET VOOX - 240ml.jpg';
+import imgFarm9 from '../assets/arquivos/FARMACOS/POTE PCO 38 500ML.jpg';
+import imgFarm10 from '../assets/arquivos/FARMACOS/POTE QD PCO 38.jpg';
+
+// --- LINHA SANEANTES IMAGES ---
+import imgSan1 from '../assets/arquivos/SANEANTES/NOVA PEAD 5L - AZUL.jpg';
+import imgSan2 from '../assets/arquivos/SANEANTES/NOVA PEAD 5L - VERDE.jpg';
+import imgSan3 from '../assets/arquivos/SANEANTES/PEAD 1L -  AZUL.jpg';
+import imgSan4 from '../assets/arquivos/SANEANTES/PEAD 1L - AMARELO.jpg';
+import imgSan5 from '../assets/arquivos/SANEANTES/PEAD 1L - BRANCO.jpg';
+import imgSan6 from '../assets/arquivos/SANEANTES/PEAD 3L - AZUL.jpg';
+import imgSan7 from '../assets/arquivos/SANEANTES/PEAD 3L - LARANJA.jpg';
+import imgSan8 from '../assets/arquivos/SANEANTES/PEAD 5L - PRETO.jpg';
+import imgSan9 from '../assets/arquivos/SANEANTES/PET AMACIANTE - 2000ML.jpg';
+import imgSan10 from '../assets/arquivos/SANEANTES/PET DETERGENTE - 500ML.jpg';
+
 // --- PREFORMAS IMAGES ---
 import imgPref1 from '../assets/arquivos/PREFORMAS/_DSC0068.jpg';
 import imgPref2 from '../assets/arquivos/PREFORMAS/_DSC0069.jpg';
@@ -35,13 +59,25 @@ const ProductShowcase = () => {
         {
             title: "LINHA ALIMENTÍCIA",
             subtitle: "Segurança e Conservação",
-            description: "Garantimos a total integridade do seu produto com embalagens PET e PEAD certificadas. Ideal para lácteos, molhos, mel e condimentos, oferecendo barreira protetora contra contaminações.",
+            description: "Embalagens PET e PEAD certificadas para alimentos. Ideal para lácteos, molhos e condimentos, garantindo barreira contra contaminações e preservação total.",
             images: [imgAlim1, imgAlim2, imgAlim3, imgAlim4, imgAlim5, imgAlim6, imgAlim7, imgAlim8, imgAlim9, imgAlim10]
         },
         {
+            title: "LINHA FÁRMACOS",
+            subtitle: "Higiene e Proteção",
+            description: "Soluções seguras para o setor farmacêutico e de cosméticos. Potes de diversos tamanhos e frascos de álcool desenvolvidos sob rigorosos padrões de qualidade.",
+            images: [imgFarm1, imgFarm2, imgFarm3, imgFarm4, imgFarm5, imgFarm6, imgFarm7, imgFarm8, imgFarm9, imgFarm10]
+        },
+        {
+            title: "LINHA SANEANTES",
+            subtitle: "Resistência Química",
+            description: "Bombonas e frascos de alta performance para produtos de limpeza, detergentes e desinfetantes. Variabilidade de cores e extrema resistência estrutural.",
+            images: [imgSan1, imgSan2, imgSan3, imgSan4, imgSan5, imgSan6, imgSan7, imgSan8, imgSan9, imgSan10]
+        },
+        {
             title: "PREFORMAS",
-            subtitle: "Tecnologia de Injeção",
-            description: "Produzimos preformas de alta precisão com gramaturas e bocais variados, prontas para o seu processo de sopro. Qualidade técnica que otimiza sua linha de produção.",
+            subtitle: "Inovação em Sopros",
+            description: "Preformas de alta precisão prontas para o sopro industrial. Disponíveis em diversas gramaturas e bocais para atender a sua demanda de produção.",
             images: [imgPref1, imgPref2, imgPref3, imgPref4, imgPref5, imgPref6, imgPref7, imgPref8, imgPref9, imgPref10]
         }
     ];
