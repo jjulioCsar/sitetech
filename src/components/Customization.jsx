@@ -1,25 +1,83 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
-import { Palette, PenTool, Layers } from 'lucide-react';
-
 import moldesImg from '../assets/moldes.webp';
 import rotulosImg from '../assets/rotulos.png';
 import { useState } from 'react';
 
-const ImageWithFade = ({ src, alt, style }) => {
+const Customization = () => {
+    return (
+        <SectionWrapper id="diferenciais">
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="container"
+                style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 24px' }}
+            >
+                {/* SECTION 1: ROTULAGEM */}
+                <div className="flex-responsive" style={{
+                    gap: '40px',
+                    alignItems: 'center',
+                    marginBottom: '100px',
+                    background: 'white',
+                    borderRadius: '40px',
+                    padding: '40px',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.03)'
+                }}>
+                    <motion.div
+                        style={{ flex: 1 }}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <span style={{ color: 'var(--color-brand-blue-dark)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}>Personalização Premium</span>
+                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', margin: '20px 0', fontFamily: 'var(--font-heading)' }}>Rotulagem Integrada</h2>
+                        <p style={{ fontSize: '1.2rem', color: '#44546a', lineHeight: 1.6 }}>Oferecemos a aplicação de rótulos (sleeve ou adesivo) em linha, garantindo que seu produto saia da fábrica pronto para gôndola. Elimine etapas logísticas e reduza seus custos de produção.</p>
+                    </motion.div>
+                    <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        style={{ flex: 1.2, height: 'clamp(300px, 40vw, 500px)', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }}
+                    >
+                        <ImageWithFade src={rotulosImg} alt="Rotulagem Premium" />
+                    </motion.div>
+                </div>
+
+                {/* SECTION 2: MOLDES */}
+                <div className="flex-responsive" style={{
+                    gap: '40px',
+                    alignItems: 'center',
+                    padding: '40px',
+                    flexDirection: 'row-reverse'
+                }}>
+                    <motion.div
+                        style={{ flex: 1 }}
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <span style={{ color: 'var(--color-brand-blue-dark)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}>Desenvolvimento</span>
+                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', margin: '20px 0', fontFamily: 'var(--font-heading)' }}>Moldes Exclusivos</h2>
+                        <p style={{ fontSize: '1.2rem', color: '#44546a', lineHeight: 1.6 }}>Nossa engenharia trabalha na criação de designs exclusivos para sua marca. Desenvolvemos moldes personalizados que unem estética premium à máxima performance técnica no sopro.</p>
+                    </motion.div>
+                    <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        style={{ flex: 1.2, height: 'clamp(300px, 40vw, 500px)', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }}
+                    >
+                        <ImageWithFade src={moldesImg} alt="Desenvolvimento de Moldes" />
+                    </motion.div>
+                </div>
+            </motion.div>
+        </SectionWrapper>
+    );
+};
+
+const ImageWithFade = ({ src, alt }) => {
     const [loaded, setLoaded] = useState(false);
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             {!loaded && (
-                <div
-                    className="skeleton-shimmer"
-                    style={{
-                        position: 'absolute',
-                        top: 0, left: 0, right: 0, bottom: 0,
-                        borderRadius: '30px',
-                        zIndex: 1
-                    }}
-                />
+                <div className="skeleton-shimmer" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1 }} />
             )}
             <motion.img
                 src={src}
@@ -27,131 +85,10 @@ const ImageWithFade = ({ src, alt, style }) => {
                 onLoad={() => setLoaded(true)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: loaded ? 1 : 0 }}
-                transition={{ duration: 0.6 }}
-                loading="lazy"
-                decoding="async"
-                style={{ ...style, visibility: loaded ? 'visible' : 'hidden' }}
+                transition={{ duration: 0.5 }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
         </div>
-    );
-};
-
-const Customization = () => {
-    return (
-        <SectionWrapper
-            id="personalizacao"
-            fluid={true}
-        >
-            <div style={{ background: 'var(--color-brand-blue-dark)', padding: '100px 0' }}>
-                <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 24px' }}>
-
-                    {/* SECTION 1: ROTULAGEM */}
-                    <div className="flex-responsive" style={{
-                        gap: '60px',
-                        alignItems: 'center',
-                        marginBottom: '100px'
-                    }}>
-                        {/* Image Side */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            style={{
-                                flex: 1,
-                                height: 'clamp(300px, 45vw, 600px)',
-                                background: 'rgba(255,255,255,0.03)',
-                                borderRadius: '40px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
-                            }}
-                        >
-                            <ImageWithFade
-                                src={rotulosImg}
-                                alt="Tipos de Rótulos"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            />
-                        </motion.div>
-
-                        {/* Text Side */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            style={{ flex: 1.2 }}
-                        >
-                            <span style={{ color: 'var(--color-brand-green)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '0.9rem' }}>
-                                Diferencial Industrial
-                            </span>
-                            <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, color: 'white', marginTop: '20px', marginBottom: '30px', lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}>
-                                Rotulagem Premium
-                            </h2>
-                            <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'rgba(255,255,255,0.9)', lineHeight: 1.5 }}>
-                                Sempre pensando na comodidade dos clientes a <strong>TECHPLAST</strong> oferta em seu processo de produção o serviço de rotulação podendo ela ser termoencolhível ou <strong>BOPP</strong>.
-                            </p>
-                        </motion.div>
-                    </div>
-
-                    {/* SECTION 2: MOLDES */}
-                    <div className="flex-responsive" style={{
-                        gap: '60px',
-                        alignItems: 'center',
-                        flexDirection: 'row-reverse' // This will naturally be handled by flex-responsive's column stacking order if we aren't careful, but since we manually set flex-direction in CSS, we should follow standard order or add a helper
-                    }}>
-                        {/* Text Side */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            style={{ flex: 1.2 }}
-                        >
-                            <span style={{ color: 'var(--color-brand-green)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '0.9rem' }}>
-                                Exclusividade & Design
-                            </span>
-                            <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, color: 'white', marginTop: '20px', marginBottom: '30px', lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}>
-                                Desenvolvimento de Moldes
-                            </h2>
-                            <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'rgba(255,255,255,0.9)', lineHeight: 1.5 }}>
-                                Se sua embalagem ideal ainda não está aqui a <strong>TECHPLAST</strong> oferta aos seus parceiros comerciais o serviço de exclusividade, desenvolvendo a embalagem de acordo com as especificações e necessidades do cliente.
-                            </p>
-                        </motion.div>
-
-                        {/* Image Side */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            style={{
-                                flex: 1,
-                                height: 'clamp(300px, 45vw, 600px)',
-                                background: 'rgba(255,255,255,0.03)',
-                                borderRadius: '40px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
-                            }}
-                        >
-                            <ImageWithFade
-                                src={moldesImg}
-                                alt="Desenvolvimento de Moldes"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            />
-                        </motion.div>
-                    </div>
-
-                </div>
-            </div>
-        </SectionWrapper>
     );
 };
 

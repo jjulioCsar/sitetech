@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
-import { Truck, Warehouse, MapPin } from 'lucide-react';
+import { Truck, Warehouse, MapPin, Box, Globe as GlobeIcon, Instagram, Linkedin, Mail } from 'lucide-react';
 import mapaBrasilImg from '../assets/mapa-brasil.png';
 
 import fleetImg from '../assets/team/caminhoes.webp';
@@ -39,11 +39,17 @@ const ImageWithFade = ({ src, alt, style }) => {
 const Logistics = () => {
     return (
         <SectionWrapper id="logistica" fluid={true}>
-            <div style={{
-                background: 'white',
-                padding: '120px 0 0',
-                position: 'relative'
-            }}>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.8 }}
+                style={{
+                    background: 'white',
+                    padding: '120px 0 0',
+                    position: 'relative'
+                }}
+            >
                 <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 24px' }}>
                     <header style={{ marginBottom: '40px', textAlign: 'left', maxWidth: '1000px' }}>
                         <span style={{ color: 'var(--color-brand-green)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 800, fontSize: '0.9rem' }}>
@@ -59,7 +65,7 @@ const Logistics = () => {
                         <div style={{ display: 'grid', gap: '40px', flex: 1 }}>
                             <div style={{ display: 'flex', gap: '20px' }}>
                                 <div style={{ background: '#f1f5f9', width: '60px', height: '60px', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                    <Warehouse size={30} color="var(--color-brand-blue-dark)" />
+                                    <Box size={30} color="var(--color-brand-blue-dark)" />
                                 </div>
                                 <div>
                                     <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--color-brand-blue-dark)', marginBottom: '10px', fontFamily: 'var(--font-heading)' }}>Armazenagem Estratégica</h3>
@@ -71,7 +77,7 @@ const Logistics = () => {
 
                             <div style={{ display: 'flex', gap: '20px' }}>
                                 <div style={{ background: '#f1f5f9', width: '60px', height: '60px', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                    <MapPin size={30} color="var(--color-brand-blue-dark)" />
+                                    <GlobeIcon size={30} color="var(--color-brand-blue-dark)" />
                                 </div>
                                 <div>
                                     <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--color-brand-blue-dark)', marginBottom: '10px', fontFamily: 'var(--font-heading)' }}>Distribuição Nacional</h3>
@@ -181,7 +187,7 @@ const Logistics = () => {
                         </motion.div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </SectionWrapper>
     );
 };

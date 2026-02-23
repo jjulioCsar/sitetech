@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Package, Shield, Truck, Droplets, FlaskConical, Filter } from 'lucide-react';
 import SectionWrapper from './ui/SectionWrapper';
 
 // --- LINHA ALIMENTICIA IMAGES ---
@@ -155,33 +155,19 @@ const ProductShowcase = () => {
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={lineIndex}
-                                    initial={{ opacity: 0, x: -30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: 30 }}
-                                    transition={{ duration: 0.5 }}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -20 }}
+                                    transition={{ duration: 0.4, ease: "easeOut" }}
+                                    style={{ flex: 1 }}
                                 >
-                                    <span style={{
-                                        color: 'var(--color-brand-green)',
-                                        fontWeight: 800,
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '2px',
-                                        fontSize: '0.9rem',
-                                        display: 'block',
-                                        marginBottom: '15px'
-                                    }}>
+                                    <span style={{ color: 'var(--color-brand-green)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', fontSize: '0.9rem', display: 'block', marginBottom: '10px' }}>
                                         {categories[lineIndex].subtitle}
                                     </span>
-                                    <h3 style={{
-                                        fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                                        fontWeight: 900,
-                                        color: 'var(--color-brand-blue-dark)',
-                                        marginBottom: '20px',
-                                        lineHeight: 1.1,
-                                        fontFamily: 'var(--font-heading)'
-                                    }}>
+                                    <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '25px', fontFamily: 'var(--font-heading)', color: 'var(--color-brand-blue-dark)' }}>
                                         {categories[lineIndex].title}
-                                    </h3>
-                                    <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: '#475569', lineHeight: 1.5, marginBottom: '30px' }}>
+                                    </h2>
+                                    <p style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', lineHeight: 1.6, color: '#475569', marginBottom: '40px', maxWidth: '600px' }}>
                                         {categories[lineIndex].description}
                                     </p>
 
@@ -208,38 +194,44 @@ const ProductShowcase = () => {
                                 <motion.div
                                     key={`${lineIndex}-${imageIndex}`}
                                     initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1.15 }}
+                                    animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 1.1 }}
-                                    transition={{ duration: 0.5, ease: "easeOut" }}
-                                    style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                    transition={{ duration: 0.5 }}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}
                                 >
                                     <ImageWithFade
                                         src={categories[lineIndex].images[imageIndex]}
-                                        alt="Product"
+                                        alt={categories[lineIndex].title}
                                     />
                                 </motion.div>
                             </AnimatePresence>
-
-                            {/* Internal Image Navigation */}
-                            <div style={{
-                                position: 'absolute',
-                                bottom: '-30px',
-                                left: '50%',
-                                transform: 'translateX(-50%)',
-                                display: 'flex',
-                                gap: '20px',
-                                alignItems: 'center',
-                                zIndex: 20
-                            }}>
-                                <button onClick={handlePrevImage} style={imgNavStyle}><ChevronLeft size={20} /></button>
-                                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#94a3b8', whiteSpace: 'nowrap' }}>
-                                    {imageIndex + 1} / {categories[lineIndex].images.length}
-                                </div>
-                                <button onClick={handleNextImage} style={imgNavStyle}><ChevronRight size={20} /></button>
-                            </div>
                         </div>
 
+                        {/* Internal Image Navigation */}
+                        <div style={{
+                            position: 'absolute',
+                            bottom: '20px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            display: 'flex',
+                            gap: '20px',
+                            alignItems: 'center',
+                            zIndex: 20
+                        }}>
+                            <button onClick={handlePrevImage} style={imgNavStyle}><ChevronLeft size={20} /></button>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#94a3b8', whiteSpace: 'nowrap' }}>
+                                {imageIndex + 1} / {categories[lineIndex].images.length}
+                            </div>
+                            <button onClick={handleNextImage} style={imgNavStyle}><ChevronRight size={20} /></button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </SectionWrapper>

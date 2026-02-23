@@ -1,5 +1,5 @@
+import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
-import logoImg from '../assets/logo.png';
 
 const MarketContext = () => {
     return (
@@ -14,7 +14,13 @@ const MarketContext = () => {
                     margin: '0 auto',
                     padding: '0 24px'
                 }}>
-                    <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ duration: 0.8 }}
+                        style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}
+                    >
                         {/* Text Side */}
                         <span style={{
                             color: 'var(--color-brand-blue-dark)',
@@ -42,7 +48,7 @@ const MarketContext = () => {
                         <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', lineHeight: 1.5, color: '#475569', margin: '0 auto' }}>
                             Nossa missão é oferecer soluções eficientes e personalizadas em embalagens, garantindo a total satisfação dos nossos clientes. A <strong>Techplast</strong> nasceu com o compromisso de proteger a integridade do seu produto por meio de materiais seguros, resistentes e sustentáveis.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </SectionWrapper>

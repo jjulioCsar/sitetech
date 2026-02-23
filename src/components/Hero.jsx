@@ -18,22 +18,26 @@ const Hero = () => {
         }}>
 
             {/* LOGO WATERMARK BACKGROUND */}
-            <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                opacity: 0.12, // Visible but not distracting
-                zIndex: 0,
-                pointerEvents: 'none'
-            }}>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.08 }} // Reduced for less interference
+                transition={{ duration: 1.5 }}
+                style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 0,
+                    pointerEvents: 'none'
+                }}
+            >
                 <img src={logoImg} alt="" style={{ width: '70vw', maxWidth: '1200px', objectFit: 'contain' }} loading="eager" decoding="async" />
-            </div>
+            </motion.div>
 
             <div className="container" style={{
                 maxWidth: 'var(--container-width)',
@@ -81,7 +85,10 @@ const Hero = () => {
                         fontSize: 'clamp(2.5rem, 8vw, 6rem)'
                     }}
                 >
-                    Há mais de <span style={{ color: 'var(--color-brand-green)' }}>15 anos</span><br />
+                    Há mais de <span style={{
+                        color: 'var(--color-brand-green)',
+                        textShadow: '0 2px 4px rgba(11, 57, 146, 0.1)' // Subtle shadow for contrast
+                    }}>15 anos</span><br />
                     <span style={{
                         background: 'linear-gradient(to right, var(--color-brand-blue-dark), var(--color-brand-blue-light))',
                         WebkitBackgroundClip: 'text',
