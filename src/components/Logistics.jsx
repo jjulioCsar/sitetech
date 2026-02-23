@@ -33,7 +33,7 @@ const Logistics = () => {
                                 <div>
                                     <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--color-brand-blue-dark)', marginBottom: '10px', fontFamily: 'var(--font-heading)' }}>Armazenagem Estratégica</h3>
                                     <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.5 }}>
-                                        Possuímos uma unidade fabril com ampla área de estocagem inteligente, garantindo despacho imediato.
+                                        Além de um amplo e moderno parque fabril possuímos um centro de distribuição próprio com ampla área de estocagem inteligente, garantindo despacho imediato.
                                     </p>
                                 </div>
                             </div>
