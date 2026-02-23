@@ -260,22 +260,36 @@ const ImageWithFade = ({ src, alt }) => {
     const [loaded, setLoaded] = useState(false);
 
     return (
-        <motion.img
-            src={src}
-            alt={alt}
-            onLoad={() => setLoaded(true)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: loaded ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
-            loading="lazy"
-            decoding="async"
-            style={{
-                maxWidth: '120%',
-                maxHeight: '120%',
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.15))'
-            }}
-        />
+        <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {!loaded && (
+                <div
+                    className="skeleton-shimmer"
+                    style={{
+                        position: 'absolute',
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        borderRadius: '24px',
+                        zIndex: 1
+                    }}
+                />
+            )}
+            <motion.img
+                src={src}
+                alt={alt}
+                onLoad={() => setLoaded(true)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: loaded ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+                loading="lazy"
+                decoding="async"
+                style={{
+                    maxWidth: '120%',
+                    maxHeight: '120%',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.15))',
+                    visibility: loaded ? 'visible' : 'hidden'
+                }}
+            />
+        </div>
     );
 };
 

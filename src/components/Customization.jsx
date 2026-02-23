@@ -9,17 +9,30 @@ import { useState } from 'react';
 const ImageWithFade = ({ src, alt, style }) => {
     const [loaded, setLoaded] = useState(false);
     return (
-        <motion.img
-            src={src}
-            alt={alt}
-            onLoad={() => setLoaded(true)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: loaded ? 1 : 0 }}
-            transition={{ duration: 0.6 }}
-            loading="lazy"
-            decoding="async"
-            style={{ ...style }}
-        />
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            {!loaded && (
+                <div
+                    className="skeleton-shimmer"
+                    style={{
+                        position: 'absolute',
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        borderRadius: '30px',
+                        zIndex: 1
+                    }}
+                />
+            )}
+            <motion.img
+                src={src}
+                alt={alt}
+                onLoad={() => setLoaded(true)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: loaded ? 1 : 0 }}
+                transition={{ duration: 0.6 }}
+                loading="lazy"
+                decoding="async"
+                style={{ ...style, visibility: loaded ? 'visible' : 'hidden' }}
+            />
+        </div>
     );
 };
 
