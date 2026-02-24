@@ -87,8 +87,8 @@ export const HumanCapital = () => {
                     viewport={{ once: true, margin: "-50px" }}
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gridAutoRows: '400px',
+                        gridTemplateColumns: 'repeat(3, 1fr)', // Force 3 columns
+                        gridAutoRows: 'clamp(300px, 30vw, 450px)',
                         gap: '20px',
                     }}
                 >
@@ -112,6 +112,8 @@ export const HumanCapital = () => {
                                     width: '100%',
                                     height: '100%',
                                     objectFit: 'cover',
+                                    // Fix Eduardo's rotation if it's the first image
+                                    transform: index === 0 ? 'rotate(270deg) scale(1.4)' : 'none',
                                     transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
                                 }}
                                 loading="lazy"
