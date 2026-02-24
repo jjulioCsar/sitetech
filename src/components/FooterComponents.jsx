@@ -13,33 +13,14 @@ export const HumanCapital = () => {
     const { t } = useLanguage();
 
     const muralImages = [
-        { src: mural1, alt: "Equipe Techplast 1" },
+        { src: mural1, alt: "Eduardo - Comercial", rotate: true },
         { src: mural2, alt: "Equipe Techplast 2" },
         { src: mural3, alt: "Equipe Techplast 3" },
         { src: mural4, alt: "Equipe Techplast 4" },
         { src: mural5, alt: "Equipe Techplast 5" },
-        { src: mural6, alt: "Equipe Techplast 6" }
+        { src: mural6, alt: "Equipe Techplast 6" },
+        { src: mural7, alt: "Equipe Techplast 7" }
     ];
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, scale: 0.9, y: 20 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            transition: { duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }
-        }
-    };
 
     return (
         <motion.section
@@ -79,56 +60,62 @@ export const HumanCapital = () => {
                     </motion.p>
                 </div>
 
-                {/* MURAL GALLERY */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(3, 1fr)', // Force 3 columns
-                        gridAutoRows: 'clamp(300px, 30vw, 450px)',
-                        gap: '20px',
-                    }}
-                >
-                    {muralImages.map((img, index) => (
-                        <motion.div
-                            key={index}
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.02, y: -5 }}
-                            style={{
-                                borderRadius: '24px',
-                                overflow: 'hidden',
-                                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)',
-                                background: '#f8fafc',
-                                position: 'relative',
-                            }}
-                        >
-                            <img
-                                src={img.src}
-                                alt={img.alt}
+                {/* AUTOMATIC TEAM CAROUSEL */}
+                <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', position: 'relative', overflow: 'hidden' }}>
+                    <motion.div
+                        animate={{
+                            x: [0, -2450], // 7 images * (320px + 30px gap) = 2450px
+                        }}
+                        transition={{
+                            x: {
+                                repeat: Infinity,
+                                repeatType: "loop",
+                                duration: 40,
+                                ease: "linear",
+                            },
+                        }}
+                        style={{
+                            display: 'flex',
+                            gap: '30px',
+                            padding: '20px 0',
+                            width: 'fit-content'
+                        }}
+                    >
+                        {[...muralImages, ...muralImages, ...muralImages].map((img, index) => (
+                            <div
+                                key={index}
                                 style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    // Fix Eduardo's rotation if it's the first image
-                                    transform: index === 0 ? 'rotate(270deg) scale(1.4)' : 'none',
-                                    transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+                                    width: '320px',
+                                    flexShrink: 0,
+                                    borderRadius: '24px',
+                                    overflow: 'hidden',
+                                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)',
+                                    aspectRatio: '4/5', // Standard proportion
+                                    background: '#f8fafc',
+                                    position: 'relative',
                                 }}
-                                loading="lazy"
-                            />
-                            {/* Visual Overlay Shimmer effect on hover via CSS transition */}
-                            <div style={{
-                                position: 'absolute',
-                                top: 0, left: 0, right: 0, bottom: 0,
-                                background: 'linear-gradient(to bottom, transparent 60%, rgba(11, 37, 85, 0.3))',
-                                opacity: 0.6,
-                                pointerEvents: 'none'
-                            }} />
-                        </motion.div>
-                    ))}
-                </motion.div>
+                            >
+                                <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        transform: img.rotate ? 'rotate(270deg) scale(1.4)' : 'none',
+                                    }}
+                                    loading="lazy"
+                                />
+                                <div style={{
+                                    position: 'absolute',
+                                    top: 0, left: 0, right: 0, bottom: 0,
+                                    background: 'linear-gradient(to bottom, transparent 60%, rgba(11, 37, 85, 0.3))',
+                                    opacity: 0.4,
+                                }} />
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </motion.section>
     )
