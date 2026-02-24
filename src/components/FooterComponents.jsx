@@ -1,14 +1,45 @@
 import { motion } from 'framer-motion';
-import { Users, Phone, Mail, MapPin, Instagram, Linkedin } from 'lucide-react';
-import SectionWrapper from './ui/SectionWrapper';
-import team1 from '../assets/team/COMERCIAL 1.JPG';
-import team2 from '../assets/team/COMERCIAL 2.JPG';
-import team3 from '../assets/team/COMERCIAL 3.JPG';
+import { Phone, Mail, Instagram, Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-
+import mural1 from '../assets/team/mural-1.webp';
+import mural2 from '../assets/team/mural-2.webp';
+import mural3 from '../assets/team/mural-3.webp';
+import mural4 from '../assets/team/mural-4.webp';
+import mural5 from '../assets/team/mural-5.webp';
+import mural6 from '../assets/team/mural-6.webp';
+import mural7 from '../assets/team/mural-7.webp';
 
 export const HumanCapital = () => {
     const { t } = useLanguage();
+
+    const muralImages = [
+        { src: mural1, alt: "Equipe Techplast 1", size: 'large' },
+        { src: mural2, alt: "Equipe Techplast 2" },
+        { src: mural3, alt: "Equipe Techplast 3" },
+        { src: mural4, alt: "Equipe Techplast 4" },
+        { src: mural5, alt: "Equipe Techplast 5" },
+        { src: mural6, alt: "Equipe Techplast 6", size: 'wide' }
+    ];
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, scale: 0.9, y: 20 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }
+        }
+    };
 
     return (
         <motion.section
@@ -16,79 +47,88 @@ export const HumanCapital = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            style={{ padding: '80px 0', background: 'white' }}
+            style={{ padding: '120px 0', background: 'white', position: 'relative', overflow: 'hidden' }}
         >
             <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
-                <div style={{ marginBottom: '60px' }}>
-                    <span style={{ color: 'var(--color-brand-green)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>
+                <div style={{ marginBottom: '80px' }}>
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        style={{ color: 'var(--color-brand-green)', fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.9rem', display: 'block', marginBottom: '15px' }}
+                    >
                         {t('human.badge')}
-                    </span>
-                    <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', lineHeight: 1.1, marginTop: '20px', fontFamily: 'var(--font-heading)' }}>
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, color: 'var(--color-brand-blue-dark)', lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}
+                    >
                         {t('human.title')}
-                    </h2>
-                    <p className="lead" style={{ maxWidth: '900px', margin: '30px auto 0', color: '#475569', fontSize: 'clamp(1rem, 2vw, 1.4rem)', lineHeight: 1.5 }}>
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="lead" style={{ maxWidth: '900px', margin: '30px auto 0', color: '#475569', fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', lineHeight: 1.6, opacity: 0.9 }}
+                    >
                         {t('human.description')}
-                    </p>
+                    </motion.p>
                 </div>
 
-                {/* PREMIUM TEAM GALLERY */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gridAutoRows: 'clamp(300px, 40vw, 500px)',
-                    gap: '24px',
-                }}>
-                    <motion.div
-                        whileHover={{ scale: 1.01 }}
-                        style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', background: '#f1f5f9' }}
-                    >
-                        <img
-                            src={team1}
-                            alt="Equipe 1"
+                {/* MURAL GALLERY */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                        gridAutoRows: '350px',
+                        gap: '20px',
+                    }}
+                >
+                    {muralImages.map((img, index) => (
+                        <motion.div
+                            key={index}
+                            variants={itemVariants}
+                            whileHover={{ scale: 1.02, y: -5 }}
                             style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                transform: 'rotate(270deg) scale(1.3)',
-                                objectPosition: 'center'
+                                borderRadius: '24px',
+                                overflow: 'hidden',
+                                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)',
+                                background: '#f8fafc',
+                                position: 'relative',
+                                gridColumn: img.size === 'wide' ? 'span 2' : 'span 1',
+                                gridRow: img.size === 'large' ? 'span 2' : 'span 1',
                             }}
-                            loading="lazy"
-                        />
-                    </motion.div>
-                    <motion.div
-                        whileHover={{ scale: 1.01 }}
-                        style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', background: '#f1f5f9' }}
-                    >
-                        <img
-                            src={team2}
-                            alt="Equipe 2"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                objectPosition: 'center 20%'
-                            }}
-                            loading="lazy"
-                        />
-                    </motion.div>
-                    <motion.div
-                        whileHover={{ scale: 1.01 }}
-                        style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)', background: '#f1f5f9' }}
-                    >
-                        <img
-                            src={team3}
-                            alt="Equipe 3"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                transform: 'rotate(270deg) scale(1.3)',
-                                objectPosition: 'center'
-                            }}
-                            loading="lazy"
-                        />
-                    </motion.div>
-                </div>
+                        >
+                            <img
+                                src={img.src}
+                                alt={img.alt}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+                                }}
+                                loading="lazy"
+                            />
+                            {/* Visual Overlay Shimmer effect on hover via CSS transition */}
+                            <div style={{
+                                position: 'absolute',
+                                top: 0, left: 0, right: 0, bottom: 0,
+                                background: 'linear-gradient(to bottom, transparent 60%, rgba(11, 37, 85, 0.3))',
+                                opacity: 0.6,
+                                pointerEvents: 'none'
+                            }} />
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
         </motion.section>
     )
