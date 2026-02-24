@@ -13,12 +13,12 @@ export const HumanCapital = () => {
     const { t } = useLanguage();
 
     const muralImages = [
-        { src: mural1, alt: "Equipe Techplast 1", size: 'large' },
+        { src: mural1, alt: "Equipe Techplast 1" },
         { src: mural2, alt: "Equipe Techplast 2" },
         { src: mural3, alt: "Equipe Techplast 3" },
         { src: mural4, alt: "Equipe Techplast 4" },
         { src: mural5, alt: "Equipe Techplast 5" },
-        { src: mural6, alt: "Equipe Techplast 6", size: 'wide' }
+        { src: mural6, alt: "Equipe Techplast 6" }
     ];
 
     const containerVariants = {
@@ -88,7 +88,7 @@ export const HumanCapital = () => {
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gridAutoRows: '350px',
+                        gridAutoRows: '400px',
                         gap: '20px',
                     }}
                 >
@@ -103,8 +103,6 @@ export const HumanCapital = () => {
                                 boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)',
                                 background: '#f8fafc',
                                 position: 'relative',
-                                gridColumn: img.size === 'wide' ? 'span 2' : 'span 1',
-                                gridRow: img.size === 'large' ? 'span 2' : 'span 1',
                             }}
                         >
                             <img
