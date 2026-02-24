@@ -8,6 +8,9 @@ import mural4 from '../assets/team/mural-4.webp';
 import mural5 from '../assets/team/mural-5.webp';
 import mural6 from '../assets/team/mural-6.webp';
 import mural7 from '../assets/team/mural-7.webp';
+import mural8 from '../assets/team/mural-8.webp';
+import mural9 from '../assets/team/mural-9.webp';
+import mural10 from '../assets/team/mural-10.webp';
 
 export const HumanCapital = () => {
     const { t } = useLanguage();
@@ -19,7 +22,10 @@ export const HumanCapital = () => {
         { src: mural4, alt: "Equipe Techplast 4" },
         { src: mural5, alt: "Equipe Techplast 5" },
         { src: mural6, alt: "Equipe Techplast 6" },
-        { src: mural7, alt: "Equipe Techplast 7" }
+        { src: mural7, alt: "Equipe Techplast 7" },
+        { src: mural8, alt: "Luciano - Comercial" },
+        { src: mural9, alt: "Equipe Techplast 9" },
+        { src: mural10, alt: "Equipe Techplast 10" }
     ];
 
     return (
@@ -64,13 +70,13 @@ export const HumanCapital = () => {
                 <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', position: 'relative', overflow: 'hidden' }}>
                     <motion.div
                         animate={{
-                            x: [0, -2450], // 7 images * (320px + 30px gap) = 2450px
+                            x: [0, -3500], // 10 images * (320px + 30px gap) = 3500px
                         }}
                         transition={{
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 40,
+                                duration: 15, // Further increased speed (from 20)
                                 ease: "linear",
                             },
                         }}
@@ -202,7 +208,7 @@ export const Footer = () => {
 
                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '40px', textAlign: 'center' }}>
                     <p style={{ opacity: 0.4, fontSize: '0.9rem' }}>
-                        © {new Date().getFullYear()} Techplast. {t('footer.rights')} <a href="#" style={{ color: 'var(--color-brand-green)', textDecoration: 'none', fontWeight: 700 }}>Júlio César</a>
+                        © {new Date().getFullYear()} Techplast. {t('footer.rights')} <a href="https://www.linkedin.com/in/j%C3%BAlio-c%C3%A9sar-480738260/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-brand-green)', textDecoration: 'none', fontWeight: 700 }}>Júlio César</a>
                     </p>
                 </div>
             </div>

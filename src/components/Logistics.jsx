@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
 import { Truck, Warehouse, MapPin, Box, Globe as GlobeIcon, Instagram, Linkedin, Mail } from 'lucide-react';
-import mapaBrasilImg from '../assets/mapa-brasil.png';
+import mapaBrasilImg from '../assets/mapa-brasil-oficial.webp';
 import { useLanguage } from '../context/LanguageContext';
 
 import fleetImg from '../assets/team/caminhoes.webp';
@@ -104,10 +104,6 @@ const Logistics = () => {
                                     transform: 'scale(1.05)'
                                 }}
                             />
-                            {/* Maceió Indicator overlay */}
-                            <div style={{ position: 'absolute', top: '38%', right: '12%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <div style={{ width: '12px', height: '12px', background: 'var(--color-brand-green)', borderRadius: '50%', boxShadow: '0 0 20px var(--color-brand-green)' }} />
-                            </div>
                         </div>
                     </div>
                 </div>
