@@ -6,8 +6,8 @@ const SectionWrapper = ({ children, id, className, fluid = false }) => {
             id={id}
             className={`section-wrapper ${className || ''}`}
             style={{
-                padding: fluid ? '0' : '120px 0',
-                minHeight: '100vh',
+                padding: fluid ? '0' : '80px 0',
+                minHeight: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',

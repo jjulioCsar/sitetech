@@ -105,7 +105,7 @@ const ProductShowcase = () => {
     return (
         <SectionWrapper id="produtos" fluid={true}>
             <div style={{ padding: '0', background: 'white' }}>
-                <div style={{ maxWidth: '100%', margin: '0', padding: '120px 24px' }}>
+                <div style={{ maxWidth: '100%', margin: '0', padding: '80px 24px' }}>
 
                     {/* Header Tabs/Toggle */}
                     <div style={{

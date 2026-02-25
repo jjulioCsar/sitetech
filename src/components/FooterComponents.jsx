@@ -19,7 +19,7 @@ export const HumanCapital = () => {
         { src: mural1, alt: "Eduardo - Comercial", rotate: true },
         { src: mural2, alt: "Equipe Techplast 2" },
         { src: mural3, alt: "Equipe Techplast 3" },
-        { src: mural4, alt: "Equipe Techplast 4" },
+        { src: mural4, alt: "Katiucia - Qualidade" },
         { src: mural5, alt: "Equipe Techplast 5" },
         { src: mural6, alt: "Equipe Techplast 6" },
         { src: mural7, alt: "Equipe Techplast 7" },
@@ -34,7 +34,7 @@ export const HumanCapital = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            style={{ padding: '120px 0', background: 'white', position: 'relative', overflow: 'hidden' }}
+            style={{ padding: '80px 0', background: 'white', position: 'relative', overflow: 'hidden' }}
         >
             <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
                 <div style={{ marginBottom: '80px' }}>

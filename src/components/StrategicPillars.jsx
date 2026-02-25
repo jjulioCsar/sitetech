@@ -8,7 +8,7 @@ const StrategicPillars = () => {
 
     return (
         <SectionWrapper id="strategy" fluid={true}>
-            <div style={{ background: 'white', padding: '120px 0' }}>
+            <div style={{ background: 'white', padding: '80px 0' }}>
                 <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 24px' }}>
 
                     {/* SECTION: NÚMEROS E PERFORMANCE */}

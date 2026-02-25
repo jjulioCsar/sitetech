@@ -49,7 +49,7 @@ const Logistics = () => {
                 transition={{ duration: 0.8 }}
                 style={{
                     background: 'white',
-                    padding: '120px 0 0',
+                    padding: '80px 0 0',
                     position: 'relative'
                 }}
             >
@@ -63,7 +63,7 @@ const Logistics = () => {
                         </h2>
                     </header>
 
-                    <div className="flex-responsive" style={{ gap: '80px', alignItems: 'center', marginBottom: '100px' }}>
+                    <div className="flex-responsive" style={{ gap: '40px', alignItems: 'center', marginBottom: '80px' }}>
                         {/* Info Cards */}
                         <div style={{ display: 'grid', gap: '40px', flex: 1 }}>
                             <div style={{ display: 'flex', gap: '20px' }}>
@@ -115,7 +115,7 @@ const Logistics = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8 }}
-                style={{ background: 'var(--color-brand-blue-dark)', padding: '100px 0' }}
+                style={{ background: 'var(--color-brand-blue-dark)', padding: '80px 0' }}
             >
                 <div className="container" style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '0 24px' }}>
                     <div className="flex-responsive" style={{ gap: '60px', alignItems: 'center', color: 'white' }}>

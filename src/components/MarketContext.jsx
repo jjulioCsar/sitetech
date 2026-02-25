@@ -8,7 +8,7 @@ const MarketContext = () => {
     return (
         <SectionWrapper id="dna" fluid={true}>
             <div style={{
-                padding: '120px 0',
+                padding: '80px 0',
                 background: '#f8fafc',
                 width: '100%'
             }}>

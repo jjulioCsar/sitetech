@@ -31,7 +31,7 @@ const Differentiators = () => {
             <div style={{
                 background: 'var(--color-surface)',
                 borderRadius: 'var(--radius-lg)',
-                padding: '80px 24px',
+                padding: '40px 24px',
                 position: 'relative',
                 overflow: 'hidden'
             }}>
@@ -44,7 +44,7 @@ const Differentiators = () => {
                     borderRadius: '50%'
                 }} />
 
-                <div className="flex-responsive" style={{ gap: '60px', alignItems: 'flex-start' }}>
+                <div className="flex-responsive" style={{ gap: '40px', alignItems: 'flex-start' }}>
 
                     {/* Headline */}
                     <div style={{ flex: 1 }}>
