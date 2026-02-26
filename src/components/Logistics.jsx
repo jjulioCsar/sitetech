@@ -207,7 +207,8 @@ const Logistics = () => {
                             whileHover={{ scale: 1.02 }}
                             style={{
                                 flex: 2, // Aumentado o flex-grow para ocupar mais espaço na tela (landscape)
-                                height: 'clamp(350px, 45vw, 600px)', // Altura responsiva, mais livre que um quadrado rígido
+                                height: 'clamp(350px, 45vw, 600px)', // Altura responsiva
+                                minHeight: '350px', // Evita o colapso do flex-basis: 0 em telas mobile (flex-direction: column)
                                 width: '100%',
                                 margin: '0 auto',
                                 borderRadius: '40px',
