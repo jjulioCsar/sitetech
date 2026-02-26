@@ -7,7 +7,7 @@ const Hero = () => {
     const { t } = useLanguage();
 
     return (
-        <section style={{
+        <section id="inicio" style={{
             minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',

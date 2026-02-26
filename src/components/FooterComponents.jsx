@@ -11,6 +11,7 @@ import mural7 from '../assets/team/mural-7.webp';
 import mural8 from '../assets/team/mural-8.webp';
 import mural9 from '../assets/team/mural-9.webp';
 import mural10 from '../assets/team/mural-10.webp';
+import mural11 from '../assets/team/mural-11.webp';
 
 export const HumanCapital = () => {
     const { t } = useLanguage();
@@ -25,7 +26,8 @@ export const HumanCapital = () => {
         { src: mural7, alt: "Equipe Techplast 7" },
         { src: mural8, alt: "Luciano - Comercial" },
         { src: mural9, alt: "Equipe Techplast 9" },
-        { src: mural10, alt: "Equipe Techplast 10" }
+        { src: mural10, alt: "Equipe Techplast 10" },
+        { src: mural11, alt: "Heleno" }
     ];
 
     return (
@@ -70,7 +72,7 @@ export const HumanCapital = () => {
                 <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', position: 'relative', overflow: 'hidden' }}>
                     <motion.div
                         animate={{
-                            x: [0, -3500], // 10 images * (320px + 30px gap) = 3500px
+                            x: [0, -3850], // 11 images * (320px + 30px gap) = 3850px
                         }}
                         transition={{
                             x: {

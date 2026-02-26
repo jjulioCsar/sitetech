@@ -80,9 +80,11 @@ export const translations = {
             address: "Rua R, Recanto do Mainá, 664, Maceió/AL",
             rights: "Todos os direitos reservados. Desenvolvido por",
             nav: {
+                inicio: "Início",
                 empresa: "Empresa",
                 produtos: "Produtos",
                 diferenciais: "Diferenciais",
+                customizacao: "Soluções",
                 logistica: "Logística"
             }
         }
@@ -168,9 +170,11 @@ export const translations = {
             address: "Rua R, Recanto do Mainá, 664, Maceió/AL",
             rights: "All rights reserved. Developed by",
             nav: {
+                inicio: "Home",
                 empresa: "Company",
                 produtos: "Products",
                 diferenciais: "Differences",
+                customizacao: "Solutions",
                 logistica: "Logistics"
             }
         }

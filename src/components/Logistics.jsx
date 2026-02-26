@@ -1,11 +1,13 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
-import { Truck, Warehouse, MapPin, Box, Globe as GlobeIcon, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Box, Globe as GlobeIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import mapaBrasilImg from '../assets/mapa-brasil-oficial.webp';
 import { useLanguage } from '../context/LanguageContext';
 
-import fleetImg from '../assets/team/caminhoes.webp';
-import { useState } from 'react';
+import imgLog1 from '../assets/logistics/logistics-1.webp';
+import imgLog2 from '../assets/logistics/logistics-2.webp';
+import imgLog3 from '../assets/logistics/logistics-3.webp';
+import { useState, useEffect } from 'react';
 
 const ImageWithFade = ({ src, alt, style }) => {
     const [loaded, setLoaded] = useState(false);
@@ -39,6 +41,43 @@ const ImageWithFade = ({ src, alt, style }) => {
 
 const Logistics = () => {
     const { t } = useLanguage();
+    const [currentImg, setCurrentImg] = useState(0);
+    const carouselImages = [imgLog1, imgLog2, imgLog3];
+
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        if (isPaused) return;
+
+        const interval = setInterval(() => {
+            setCurrentImg(prev => (prev + 1) % carouselImages.length);
+        }, 5000); // Slower, more elegant automatic pass
+
+        return () => clearInterval(interval);
+    }, [carouselImages.length, isPaused]);
+
+    // Handle user interaction to pause the carousel temporarily
+    const handleInteraction = (action) => {
+        action();
+        setIsPaused(true);
+
+        // Resume auto-play after 8 seconds of inactivity
+        setTimeout(() => {
+            setIsPaused(false);
+        }, 8000);
+    };
+
+    const handleNext = () => {
+        handleInteraction(() => {
+            setCurrentImg(prev => (prev + 1) % carouselImages.length);
+        });
+    };
+
+    const handlePrev = () => {
+        handleInteraction(() => {
+            setCurrentImg(prev => (prev - 1 + carouselImages.length) % carouselImages.length);
+        });
+    };
 
     return (
         <SectionWrapper id="logistica" fluid={true}>
@@ -167,24 +206,93 @@ const Logistics = () => {
                         <motion.div
                             whileHover={{ scale: 1.02 }}
                             style={{
-                                flex: 1,
-                                height: 'clamp(350px, 45vw, 550px)',
+                                flex: 2, // Aumentado o flex-grow para ocupar mais espaço na tela (landscape)
+                                height: 'clamp(350px, 45vw, 600px)', // Altura responsiva, mais livre que um quadrado rígido
+                                width: '100%',
+                                margin: '0 auto',
                                 borderRadius: '40px',
                                 overflow: 'hidden',
                                 boxShadow: '0 40px 80px rgba(0,0,0,0.4)',
                                 position: 'relative'
                             }}
                         >
-                            <ImageWithFade
-                                src={fleetImg}
-                                alt="Frota Techplast"
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentImg}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+                                >
+                                    <ImageWithFade
+                                        src={carouselImages[currentImg]}
+                                        alt={`Logística Techplast ${currentImg + 1}`}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                            filter: 'brightness(1.05) contrast(1.1)'
+                                        }}
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Setas de Navegação (Estilo Tampplast) */}
+                            <button
+                                onClick={handlePrev}
                                 style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    filter: 'brightness(1.05) contrast(1.1)'
+                                    position: 'absolute', top: '50%', left: 'max(10px, 2vw)', transform: 'translateY(-50%)',
+                                    background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(5px)',
+                                    border: 'none', borderRadius: '50%',
+                                    width: 'clamp(35px, 8vw, 50px)', height: 'clamp(35px, 8vw, 50px)',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    color: 'white', cursor: 'pointer', zIndex: 10, transition: 'background 0.3s'
                                 }}
-                            />
+                                onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.3)'}
+                                onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
+                            >
+                                <ChevronLeft size={30} />
+                            </button>
+
+                            <button
+                                onClick={handleNext}
+                                style={{
+                                    position: 'absolute', top: '50%', right: 'max(10px, 2vw)', transform: 'translateY(-50%)',
+                                    background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(5px)',
+                                    border: 'none', borderRadius: '50%',
+                                    width: 'clamp(35px, 8vw, 50px)', height: 'clamp(35px, 8vw, 50px)',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    color: 'white', cursor: 'pointer', zIndex: 10, transition: 'background 0.3s'
+                                }}
+                                onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.3)'}
+                                onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
+                            >
+                                <ChevronRight size={30} />
+                            </button>
+
+                            {/* Dots Indicators */}
+                            <div style={{
+                                position: 'absolute', bottom: '30px', left: '50%', transform: 'translateX(-50%)',
+                                display: 'flex', gap: '10px', zIndex: 10
+                            }}>
+                                {carouselImages.map((_, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => handleInteraction(() => setCurrentImg(idx))}
+                                        style={{
+                                            width: currentImg === idx ? '30px' : '10px',
+                                            height: '10px',
+                                            borderRadius: '5px',
+                                            background: currentImg === idx ? 'var(--color-brand-green)' : 'rgba(255,255,255,0.5)',
+                                            border: 'none',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease-in-out'
+                                        }}
+                                        aria-label={`Go to slide ${idx + 1}`}
+                                    />
+                                ))}
+                            </div>
                         </motion.div>
                     </div>
                 </div>

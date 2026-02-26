@@ -5,6 +5,7 @@ import Lenis from 'lenis'
 import { motion, useScroll, useSpring } from 'framer-motion'
 
 // Components
+import Header from './components/ui/Header'
 import Hero from './components/Hero'
 import MarketContext from './components/MarketContext'
 import ProductShowcase from './components/ProductShowcase'
@@ -58,13 +59,15 @@ function App() {
             top: 0,
             left: 0,
             right: 0,
-            height: '6px',
+            height: '4px',
             background: 'var(--color-brand-green)',
             transformOrigin: '0%',
             scaleX,
-            zIndex: 1000
+            zIndex: 1001
           }}
         />
+
+        <Header />
 
         <main style={{ position: 'relative', zIndex: 1, marginTop: '0px' }}>
           <Hero />
