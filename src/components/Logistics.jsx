@@ -5,8 +5,8 @@ import mapaBrasilImg from '../assets/mapa-brasil-oficial.webp';
 import { useLanguage } from '../context/LanguageContext';
 
 import imgLog1 from '../assets/logistics/logistics-1.webp';
-import imgLog2 from '../assets/logistics/logistics-2.webp';
-import imgLog3 from '../assets/logistics/logistics-3.webp';
+import imgLog4 from '../assets/logistics/logistics-4.webp';
+import imgLog5 from '../assets/logistics/logistics-5.webp';
 import { useState, useEffect } from 'react';
 
 const ImageWithFade = ({ src, alt, style }) => {
@@ -42,7 +42,7 @@ const ImageWithFade = ({ src, alt, style }) => {
 const Logistics = () => {
     const { t } = useLanguage();
     const [currentImg, setCurrentImg] = useState(0);
-    const carouselImages = [imgLog1, imgLog2, imgLog3];
+    const carouselImages = [imgLog1, imgLog4, imgLog5];
 
     const [isPaused, setIsPaused] = useState(false);
 
