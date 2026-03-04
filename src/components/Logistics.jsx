@@ -7,6 +7,8 @@ import { useLanguage } from '../context/LanguageContext';
 import imgLog1 from '../assets/logistics/logistics-1.webp';
 import imgLog4 from '../assets/logistics/logistics-4.webp';
 import imgLog5 from '../assets/logistics/logistics-5.webp';
+import imgLog6 from '../assets/logistics/logistics-6.webp';
+import imgLog7 from '../assets/logistics/logistics-7.webp';
 import { useState, useEffect } from 'react';
 
 const ImageWithFade = ({ src, alt, style }) => {
@@ -42,7 +44,7 @@ const ImageWithFade = ({ src, alt, style }) => {
 const Logistics = () => {
     const { t } = useLanguage();
     const [currentImg, setCurrentImg] = useState(0);
-    const carouselImages = [imgLog1, imgLog4, imgLog5];
+    const carouselImages = [imgLog1, imgLog4, imgLog5, imgLog6, imgLog7];
 
     const [isPaused, setIsPaused] = useState(false);
 
