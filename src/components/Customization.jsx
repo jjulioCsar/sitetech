@@ -47,11 +47,10 @@ const Customization = () => {
                 </div>
 
                 {/* SECTION 2: MOLDES */}
-                <div className="flex-responsive" style={{
+                <div className="flex-responsive reverse" style={{
                     gap: '40px',
                     alignItems: 'center',
-                    padding: '40px',
-                    flexDirection: 'row-reverse'
+                    padding: '40px'
                 }}>
                     <motion.div
                         style={{ flex: 1 }}

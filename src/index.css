@@ -130,9 +130,13 @@ p.lead {
   flex-direction: row;
 }
 
+.flex-responsive.reverse {
+  flex-direction: row-reverse;
+}
+
 @media (max-width: 1024px) {
   .flex-responsive {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 40px;
   }
 }
