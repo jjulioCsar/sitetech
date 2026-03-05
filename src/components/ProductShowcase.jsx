@@ -4,53 +4,17 @@ import { ChevronLeft, ChevronRight, Package, Shield, Truck, Droplets, FlaskConic
 import SectionWrapper from './ui/SectionWrapper';
 import { useLanguage } from '../context/LanguageContext';
 
-// --- LINHA ALIMENTICIA IMAGES ---
-import imgAlim1 from '../assets/arquivos/ALIMENTICIA/PEAD YOGURT - 180ML.jpg';
-import imgAlim2 from '../assets/arquivos/ALIMENTICIA/PET 28 - 300ML.jpg';
-import imgAlim3 from '../assets/arquivos/ALIMENTICIA/PET KEETCHUP - 370ML.jpg';
-import imgAlim4 from '../assets/arquivos/ALIMENTICIA/PET KETCHUP - 200ML.jpg';
-import imgAlim5 from '../assets/arquivos/ALIMENTICIA/PET KETCHUP 200ML.jpg';
-import imgAlim6 from '../assets/arquivos/ALIMENTICIA/PET MEL - 200ML.jpg';
-import imgAlim7 from '../assets/arquivos/ALIMENTICIA/PET MEL - 500ML.jpg';
-import imgAlim8 from '../assets/arquivos/ALIMENTICIA/PET PIMENTA.jpg';
-import imgAlim9 from '../assets/arquivos/ALIMENTICIA/PET YOGURT - 900ML.jpg';
-import imgAlim10 from '../assets/arquivos/ALIMENTICIA/PET YOGURT - BATALHA.jpg';
+const alimenticiaContext = import.meta.glob('../assets/arquivos/ALIMENTICIA/*.{jpg,jpeg,png,webp}', { eager: true });
+const alimenticiaImages = Object.values(alimenticiaContext).map((mod) => mod.default);
 
-// --- LINHA FARMACOS IMAGES ---
-import imgFarm1 from '../assets/arquivos/FARMACOS/LINHA PET ALCOOL.jpg';
-import imgFarm2 from '../assets/arquivos/FARMACOS/LINHA POTES PCO 38.jpg';
-import imgFarm3 from '../assets/arquivos/FARMACOS/LINHA POTES PCO 63.jpg';
-import imgFarm4 from '../assets/arquivos/FARMACOS/PEAD POTE - 60ML.jpg';
-import imgFarm5 from '../assets/arquivos/FARMACOS/PEAD POTE 60ML.jpg';
-import imgFarm6 from '../assets/arquivos/FARMACOS/PEAD XAROPE 200ML.jpg';
-import imgFarm7 from '../assets/arquivos/FARMACOS/PET COSMETICOS - 250ML.jpg';
-import imgFarm8 from '../assets/arquivos/FARMACOS/PET VOOX - 240ml.jpg';
-import imgFarm9 from '../assets/arquivos/FARMACOS/POTE PCO 38 500ML.jpg';
-import imgFarm10 from '../assets/arquivos/FARMACOS/POTE QD PCO 38.jpg';
+const farmacosContext = import.meta.glob('../assets/arquivos/FARMACOS/*.{jpg,jpeg,png,webp}', { eager: true });
+const farmacosImages = Object.values(farmacosContext).map((mod) => mod.default);
 
-// --- LINHA SANEANTES IMAGES ---
-import imgSan1 from '../assets/arquivos/SANEANTES/NOVA PEAD 5L - AZUL.jpg';
-import imgSan2 from '../assets/arquivos/SANEANTES/NOVA PEAD 5L - VERDE.jpg';
-import imgSan3 from '../assets/arquivos/SANEANTES/PEAD 1L -  AZUL.jpg';
-import imgSan4 from '../assets/arquivos/SANEANTES/PEAD 1L - AMARELO.jpg';
-import imgSan5 from '../assets/arquivos/SANEANTES/PEAD 1L - BRANCO.jpg';
-import imgSan6 from '../assets/arquivos/SANEANTES/PEAD 3L - AZUL.jpg';
-import imgSan7 from '../assets/arquivos/SANEANTES/PEAD 3L - LARANJA.jpg';
-import imgSan8 from '../assets/arquivos/SANEANTES/PEAD 5L - PRETO.jpg';
-import imgSan9 from '../assets/arquivos/SANEANTES/PET AMACIANTE - 2000ML.jpg';
-import imgSan10 from '../assets/arquivos/SANEANTES/PET DETERGENTE - 500ML.jpg';
+const saneantesContext = import.meta.glob('../assets/arquivos/SANEANTES/*.{jpg,jpeg,png,webp}', { eager: true });
+const saneantesImages = Object.values(saneantesContext).map((mod) => mod.default);
 
-// --- PREFORMAS IMAGES ---
-import imgPref1 from '../assets/arquivos/PREFORMAS/_DSC0068.jpg';
-import imgPref2 from '../assets/arquivos/PREFORMAS/_DSC0069.jpg';
-import imgPref3 from '../assets/arquivos/PREFORMAS/_DSC0073.jpg';
-import imgPref4 from '../assets/arquivos/PREFORMAS/_DSC0074.jpg';
-import imgPref5 from '../assets/arquivos/PREFORMAS/_DSC0077.jpg';
-import imgPref6 from '../assets/arquivos/PREFORMAS/_DSC0079.jpg';
-import imgPref7 from '../assets/arquivos/PREFORMAS/_DSC0081.jpg';
-import imgPref8 from '../assets/arquivos/PREFORMAS/_DSC0083.jpg';
-import imgPref9 from '../assets/arquivos/PREFORMAS/_DSC0086.jpg';
-import imgPref10 from '../assets/arquivos/PREFORMAS/_DSC0087.jpg';
+const preformasContext = import.meta.glob('../assets/arquivos/PREFORMAS/*.{jpg,jpeg,png,webp}', { eager: true });
+const preformasImages = Object.values(preformasContext).map((mod) => mod.default);
 
 const ProductShowcase = () => {
     const { t } = useLanguage();
@@ -62,25 +26,25 @@ const ProductShowcase = () => {
             title: t('products.categories.alimenticia.title'),
             subtitle: t('products.categories.alimenticia.subtitle'),
             description: t('products.categories.alimenticia.description'),
-            images: [imgAlim1, imgAlim2, imgAlim3, imgAlim4, imgAlim5, imgAlim6, imgAlim7, imgAlim8, imgAlim9, imgAlim10]
+            images: alimenticiaImages
         },
         {
             title: t('products.categories.farmacos.title'),
             subtitle: t('products.categories.farmacos.subtitle'),
             description: t('products.categories.farmacos.description'),
-            images: [imgFarm1, imgFarm2, imgFarm3, imgFarm4, imgFarm5, imgFarm6, imgFarm7, imgFarm8, imgFarm9, imgFarm10]
+            images: farmacosImages
         },
         {
             title: t('products.categories.saneantes.title'),
             subtitle: t('products.categories.saneantes.subtitle'),
             description: t('products.categories.saneantes.description'),
-            images: [imgSan1, imgSan2, imgSan3, imgSan4, imgSan5, imgSan6, imgSan7, imgSan8, imgSan9, imgSan10]
+            images: saneantesImages
         },
         {
             title: t('products.categories.preformas.title'),
             subtitle: t('products.categories.preformas.subtitle'),
             description: t('products.categories.preformas.description'),
-            images: [imgPref1, imgPref2, imgPref3, imgPref4, imgPref5, imgPref6, imgPref7, imgPref8, imgPref9, imgPref10]
+            images: preformasImages
         }
     ];
 
