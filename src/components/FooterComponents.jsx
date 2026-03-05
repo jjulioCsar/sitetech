@@ -8,7 +8,7 @@ import mural4 from '../assets/team/mural-4.webp';
 import mural5 from '../assets/team/mural-5.webp';
 import mural6 from '../assets/team/mural-6.webp';
 import mural7 from '../assets/team/mural-7.webp';
-import mural8 from '../assets/team/mural-8.webp';
+import mural12 from '../assets/team/mural-12.webp';
 import mural9 from '../assets/team/mural-9.webp';
 import mural10 from '../assets/team/mural-10.webp';
 import mural11 from '../assets/team/mural-11.webp';
@@ -24,7 +24,7 @@ export const HumanCapital = () => {
         { src: mural5, alt: "Equipe Techplast 5" },
         { src: mural6, alt: "Equipe Techplast 6" },
         { src: mural7, alt: "Equipe Techplast 7" },
-        { src: mural8, alt: "Luciano - Comercial" },
+        { src: mural12, alt: "Luciano - Comercial" },
         { src: mural9, alt: "Equipe Techplast 9" },
         { src: mural10, alt: "Equipe Techplast 10" },
         { src: mural11, alt: "Heleno" }
