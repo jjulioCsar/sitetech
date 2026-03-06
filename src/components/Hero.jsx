@@ -15,7 +15,8 @@ const Hero = () => {
             justifyContent: 'center',
             position: 'relative',
             background: 'white',
-            paddingTop: '0px',
+            paddingTop: '100px',
+            paddingBottom: '100px', // Added to prevent overlap with absolute arrow
             overflow: 'hidden'
         }}>
 

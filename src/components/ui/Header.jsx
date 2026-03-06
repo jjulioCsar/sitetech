@@ -21,7 +21,15 @@ const Header = () => {
         setMobileOpen(false);
         const el = document.getElementById(id);
         if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
+            // Compensate for fixed header height
+            const headerOffset = 80;
+            const elementPosition = el.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
         }
     };
 
@@ -36,16 +44,15 @@ const Header = () => {
 
     return (
         <header
+            className={scrolled ? 'glass-nav' : ''}
             style={{
                 position: 'fixed',
                 top: 0,
                 left: 0,
                 right: 0,
                 zIndex: 999,
-                transition: 'all 0.3s ease-in-out',
-                background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-                backdropFilter: scrolled ? 'blur(10px)' : 'none',
-                boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.05)' : 'none',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                background: scrolled ? 'rgba(255, 255, 255, 0.8)' : 'transparent',
                 padding: scrolled ? '15px 0' : '30px 0'
             }}
         >

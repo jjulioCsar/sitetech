@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Package, Shield, Truck, Droplets, FlaskConical, Filter } from 'lucide-react';
 import SectionWrapper from './ui/SectionWrapper';
@@ -20,6 +21,31 @@ const ProductShowcase = () => {
     const { t } = useLanguage();
     const [lineIndex, setLineIndex] = useState(0);
     const [imageIndex, setImageIndex] = useState(0);
+    const [isZoomed, setIsZoomed] = useState(false);
+
+    // Lock body scroll when zoomed and handle Escape key
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                setIsZoomed(false);
+            }
+        };
+
+        if (isZoomed) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.classList.add('lenis-stopped'); // Force lenis to stop scrolling
+            window.addEventListener('keydown', handleKeyDown);
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.classList.remove('lenis-stopped');
+            window.removeEventListener('keydown', handleKeyDown);
+        }
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.classList.remove('lenis-stopped');
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [isZoomed]);
 
     const categories = [
         {
@@ -71,6 +97,104 @@ const ProductShowcase = () => {
             <div style={{ padding: '0', background: 'white' }}>
                 <div style={{ maxWidth: '100%', margin: '0', padding: '80px 24px' }}>
 
+                    {/* Zoom Modal (Lightbox) */}
+                    {createPortal(
+                        <AnimatePresence>
+                            {isZoomed && (
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    onClick={() => setIsZoomed(false)}
+                                    style={{
+                                        position: 'fixed',
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        bottom: 0,
+                                        backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                                        zIndex: 999999, // Ensure it's above header (999) and everything else
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        cursor: 'zoom-out',
+                                        backdropFilter: 'blur(10px)'
+                                    }}
+                                >
+                                    <button
+                                        className="lightbox-close-btn"
+                                        onClick={(e) => { e.stopPropagation(); setIsZoomed(false); }}
+                                        style={{
+                                            position: 'absolute',
+                                            top: '30px',
+                                            right: '30px',
+                                            background: 'rgba(255, 255, 255, 0.1)',
+                                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                                            borderRadius: '50%',
+                                            width: '50px',
+                                            height: '50px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            color: 'white',
+                                            fontSize: '24px',
+                                            cursor: 'pointer',
+                                            zIndex: 1000000,
+                                            transition: 'all 0.3s'
+                                        }}
+                                        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
+                                        onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
+                                        aria-label="Fechar zoom"
+                                    >
+                                        ✕
+                                    </button>
+
+                                    {/* Lightbox internal navigation */}
+                                    <button
+                                        className="lightbox-nav-btn left"
+                                        onClick={(e) => { e.stopPropagation(); handlePrevImage(); }}
+                                        style={{
+                                            position: 'absolute', left: '30px', top: '50%', transform: 'translateY(-50%)',
+                                            ...lightboxBtnStyle
+                                        }}
+                                    >
+                                        <ChevronLeft size={32} />
+                                    </button>
+
+                                    <button
+                                        className="lightbox-nav-btn right"
+                                        onClick={(e) => { e.stopPropagation(); handleNextImage(); }}
+                                        style={{
+                                            position: 'absolute', right: '30px', top: '50%', transform: 'translateY(-50%)',
+                                            ...lightboxBtnStyle
+                                        }}
+                                    >
+                                        <ChevronRight size={32} />
+                                    </button>
+
+                                    <motion.img
+                                        key={imageIndex} // Adicionado key para forçar re-render na navegação webp
+                                        src={categories[lineIndex].images[imageIndex]}
+                                        alt={categories[lineIndex].title}
+                                        initial={{ scale: 0.8, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        exit={{ scale: 0.8, opacity: 0 }}
+                                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                                        onClick={(e) => e.stopPropagation()} // Prevent close when clicking image itself
+                                        style={{
+                                            maxHeight: '90vh',
+                                            maxWidth: '90vw',
+                                            objectFit: 'contain',
+                                            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))',
+                                            cursor: 'default'
+                                        }}
+                                    />
+                                </motion.div>
+                            )}
+                        </AnimatePresence>,
+                        document.body
+                    )}
+
                     {/* Header Tabs/Toggle */}
                     <div style={{
                         display: 'flex',
@@ -82,6 +206,7 @@ const ProductShowcase = () => {
                         {categories.map((cat, i) => (
                             <motion.button
                                 key={i}
+                                className="premium-hover-btn"
                                 onClick={() => { setLineIndex(i); setImageIndex(0); }}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -97,7 +222,9 @@ const ProductShowcase = () => {
                                     cursor: 'pointer',
                                     transition: 'background 0.3s, color 0.3s',
                                     boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-                                    textTransform: 'uppercase'
+                                    textTransform: 'uppercase',
+                                    position: 'relative',
+                                    overflow: 'hidden'
                                 }}
                             >
                                 {cat.title}
@@ -171,10 +298,15 @@ const ProductShowcase = () => {
                                         justifyContent: 'center'
                                     }}
                                 >
-                                    <ImageWithFade
-                                        src={categories[lineIndex].images[imageIndex]}
-                                        alt={categories[lineIndex].title}
-                                    />
+                                    <div
+                                        onClick={() => setIsZoomed(true)}
+                                        style={{ width: '100%', height: '100%', cursor: 'zoom-in', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                    >
+                                        <ImageWithFade
+                                            src={categories[lineIndex].images[imageIndex]}
+                                            alt={categories[lineIndex].title}
+                                        />
+                                    </div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
@@ -209,14 +341,31 @@ const btnNavStyle = {
     background: 'white', border: '1px solid #e2e8f0',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     cursor: 'pointer', transition: 'all 0.2s',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
+    boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
+    color: 'var(--color-brand-blue-dark)'
 };
 
 const imgNavStyle = {
     width: '45px', height: '45px', borderRadius: '50%',
     background: 'white', border: '1px solid #e2e8f0',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
+    cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
+    color: 'var(--color-brand-blue-dark)'
+};
+
+const lightboxBtnStyle = {
+    background: 'rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    borderRadius: '50%',
+    width: '60px',
+    height: '60px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'white',
+    cursor: 'pointer',
+    zIndex: 10000,
+    transition: 'all 0.3s'
 };
 
 const ImageWithFade = ({ src, alt }) => {
@@ -249,7 +398,8 @@ const ImageWithFade = ({ src, alt }) => {
                     maxHeight: '120%',
                     objectFit: 'contain',
                     filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.15))',
-                    visibility: loaded ? 'visible' : 'hidden'
+                    visibility: loaded ? 'visible' : 'hidden',
+                    pointerEvents: 'auto'
                 }}
             />
         </div>

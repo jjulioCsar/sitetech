@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
 import { Users, Package, Map, Globe } from 'lucide-react';
+import CountUp from 'react-countup';
 import { useLanguage } from '../context/LanguageContext';
 
 const StrategicPillars = () => {
@@ -62,7 +63,9 @@ const StrategicPillars = () => {
                             }}
                         >
                             <Users size={32} style={{ marginBottom: '20px', opacity: 0.2 }} />
-                            <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 600</div>
+                            <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>
+                                + <CountUp end={600} duration={3} enableScrollSpy scrollSpyOnce />
+                            </div>
                             <div style={{ opacity: 0.8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.clients')}</div>
                         </motion.div>
 
@@ -88,7 +91,9 @@ const StrategicPillars = () => {
                             }}
                         >
                             <Package size={32} style={{ marginBottom: '20px', opacity: 0.3 }} />
-                            <div style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 900, lineHeight: 1 }}>200.000.000</div>
+                            <div style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 900, lineHeight: 1 }}>
+                                <CountUp end={200} duration={3} enableScrollSpy scrollSpyOnce suffix="M" />
+                            </div>
                             <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.packaging')}</div>
                         </motion.div>
 
@@ -115,7 +120,9 @@ const StrategicPillars = () => {
                             }}
                         >
                             <Map size={32} style={{ marginBottom: '20px', opacity: 0.2 }} />
-                            <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 300</div>
+                            <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>
+                                + <CountUp end={300} duration={3} enableScrollSpy scrollSpyOnce />
+                            </div>
                             <div style={{ opacity: 0.8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.cities')}</div>
                         </motion.div>
 
@@ -141,7 +148,9 @@ const StrategicPillars = () => {
                             }}
                         >
                             <Globe size={32} style={{ marginBottom: '20px', opacity: 0.3 }} />
-                            <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>+ 18</div>
+                            <div style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1 }}>
+                                + <CountUp end={18} duration={3} enableScrollSpy scrollSpyOnce />
+                            </div>
                             <div style={{ opacity: 0.7, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.75rem', marginTop: '10px' }}>{t('pillars.states')}</div>
                         </motion.div>
                     </motion.div>

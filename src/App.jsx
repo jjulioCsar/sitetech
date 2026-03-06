@@ -1,4 +1,5 @@
 import { useEffect, useState, Suspense, lazy } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext'
 import LanguageSwitcher from './components/ui/LanguageSwitcher'
 import Lenis from 'lenis'
@@ -13,6 +14,8 @@ import StrategicPillars from './components/StrategicPillars'
 import Customization from './components/Customization'
 import Logistics from './components/Logistics'
 import { Footer, HumanCapital } from './components/FooterComponents'
+import FloatingButtons from './components/ui/FloatingButtons'
+import NotFound from './pages/NotFound'
 
 // Assets
 import logoImg from './assets/logo.png'
@@ -48,39 +51,47 @@ function App() {
 
   return (
     <LanguageProvider>
-      <div className="app-container" style={{ position: 'relative', overflow: 'hidden' }}>
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <div className="app-container" style={{ position: 'relative', overflow: 'hidden' }}>
 
-        <LanguageSwitcher />
+              <LanguageSwitcher />
+              <FloatingButtons />
 
-        {/* Scroll Progress Bar */}
-        <motion.div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '4px',
-            background: 'var(--color-brand-green)',
-            transformOrigin: '0%',
-            scaleX,
-            zIndex: 1001
-          }}
-        />
+              {/* Scroll Progress Bar */}
+              <motion.div
+                style={{
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '4px',
+                  background: 'var(--color-brand-green)',
+                  transformOrigin: '0%',
+                  scaleX,
+                  zIndex: 1001
+                }}
+              />
 
-        <Header />
+              <Header />
 
-        <main style={{ position: 'relative', zIndex: 1, marginTop: '0px' }}>
-          <Hero />
-          <MarketContext />
-          <StrategicPillars />
-          <ProductShowcase />
-          <Customization />
-          <Logistics />
-          <HumanCapital />
-        </main>
+              <main style={{ position: 'relative', zIndex: 1, marginTop: '0px' }}>
+                <Hero />
+                <MarketContext />
+                <StrategicPillars />
+                <ProductShowcase />
+                <Customization />
+                <Logistics />
+                <HumanCapital />
+              </main>
 
-        <Footer />
-      </div>
+              <Footer />
+            </div>
+          } />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
     </LanguageProvider>
   )
 }

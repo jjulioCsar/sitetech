@@ -78,7 +78,7 @@ export const translations = {
             social_title: "Redes Sociais",
             contact_title: "Contato",
             address: "Rua R, Recanto do Mainá, 664, Maceió/AL",
-            rights: "Todos os direitos reservados. Desenvolvido por",
+            rights: "Todos os direitos reservados.",
             nav: {
                 inicio: "Início",
                 empresa: "Empresa",
@@ -168,7 +168,7 @@ export const translations = {
             social_title: "Social Media",
             contact_title: "Contact",
             address: "Rua R, Recanto do Mainá, 664, Maceió/AL",
-            rights: "All rights reserved. Developed by",
+            rights: "All rights reserved.",
             nav: {
                 inicio: "Home",
                 empresa: "Company",

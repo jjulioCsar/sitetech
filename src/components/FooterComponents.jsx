@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, Instagram, Linkedin } from 'lucide-react';
+import logoMarcaBranca from '../assets/logo-marca-branca.png';
 import { useLanguage } from '../context/LanguageContext';
 import mural1 from '../assets/team/mural-1.webp';
 import mural2 from '../assets/team/mural-2.webp';
@@ -208,10 +209,13 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '40px', textAlign: 'center' }}>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
                     <p style={{ opacity: 0.4, fontSize: '0.9rem' }}>
-                        © {new Date().getFullYear()} Techplast. {t('footer.rights')} <a href="https://www.linkedin.com/in/j%C3%BAlio-c%C3%A9sar-480738260/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-brand-green)', textDecoration: 'none', fontWeight: 700 }}>Júlio César</a>
+                        © {new Date().getFullYear()} Techplast. {t('footer.rights')}
                     </p>
+                    <a href="https://www.portfolio.juliocesar.site" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', transition: 'opacity 0.3s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+                        <img src={logoMarcaBranca} alt="Júlio César - Desenvolvedor" style={{ height: '70px', width: 'auto', objectFit: 'contain' }} />
+                    </a>
                 </div>
             </div>
         </footer>
