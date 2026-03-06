@@ -4,6 +4,18 @@ import { LanguageProvider } from './context/LanguageContext'
 import LanguageSwitcher from './components/ui/LanguageSwitcher'
 import Lenis from 'lenis'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
+
+// Utilities
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 // Components
 import Header from './components/ui/Header'
@@ -11,8 +23,10 @@ import Hero from './components/Hero'
 import MarketContext from './components/MarketContext'
 import ProductShowcase from './components/ProductShowcase'
 import StrategicPillars from './components/StrategicPillars'
+import BrandVideo from './components/BrandVideo'
 import Customization from './components/Customization'
 import Logistics from './components/Logistics'
+import LocationMap from './components/LocationMap'
 import { Footer, HumanCapital } from './components/FooterComponents'
 import FloatingButtons from './components/ui/FloatingButtons'
 import NotFound from './pages/NotFound'
@@ -52,6 +66,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={
             <div className="app-container" style={{ position: 'relative', overflow: 'hidden' }}>
@@ -80,9 +95,11 @@ function App() {
                 <Hero />
                 <MarketContext />
                 <StrategicPillars />
+                <BrandVideo />
                 <ProductShowcase />
                 <Customization />
                 <Logistics />
+                <LocationMap />
                 <HumanCapital />
               </main>
 

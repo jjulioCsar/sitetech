@@ -37,9 +37,11 @@ const Header = () => {
         { label: t('footer.nav.inicio') || 'Início', id: 'inicio' },
         { label: t('footer.nav.empresa'), id: 'dna' },
         { label: t('footer.nav.diferenciais') || 'Pilares', id: 'strategy' },
+        { label: 'Vídeo', id: 'video' },
         { label: t('footer.nav.produtos'), id: 'produtos' },
         { label: t('footer.nav.customizacao') || 'Soluções', id: 'customizacao' },
-        { label: t('footer.nav.logistica'), id: 'logistica' }
+        { label: t('footer.nav.logistica'), id: 'logistica' },
+        { label: 'Localização', id: 'localizacao' }
     ];
 
     return (
