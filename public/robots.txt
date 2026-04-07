@@ -1,0 +1,13 @@
+# Techplast - Robots.txt
+# Permite que todos os crawlers indexem o site inteiro
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://techplastembalagens.com.br/sitemap.xml
+
+# Bloqueia acesso a arquivos de desenvolvimento
+Disallow: /src/
+Disallow: /.git/
+Disallow: /node_modules/
