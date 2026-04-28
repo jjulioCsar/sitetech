@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Clapperboard, X } from 'lucide-react';
 import SectionWrapper from './ui/SectionWrapper';
 import { createPortal } from 'react-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const BrandVideo = () => {
+    const { t } = useLanguage();
     const [isPlaying, setIsPlaying] = useState(false);
     const videoId = '2BJR2voLv2k';
     const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
@@ -96,10 +98,10 @@ const BrandVideo = () => {
                                 letterSpacing: '1px',
                                 textShadow: '0 4px 10px rgba(0,0,0,0.8)'
                             }}>
-                                Clique Para Assistir
+                                {t('video.title')}
                             </h3>
                             <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', marginTop: '10px', textShadow: '0 2px 5px rgba(0,0,0,0.8)' }}>
-                                Conheça a nossa história e produção
+                                {t('video.desc')}
                             </p>
                         </motion.div>
                     </div>
@@ -138,7 +140,7 @@ const BrandVideo = () => {
                                             cursor: 'pointer',
                                             zIndex: 10
                                         }}
-                                        aria-label="Fechar Vídeo"
+                                        aria-label={t('video.aria_close')}
                                     >
                                         <X size={28} />
                                     </button>
@@ -162,7 +164,7 @@ const BrandVideo = () => {
                                             width="100%"
                                             height="100%"
                                             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
-                                            title="Vídeo Institucional Techplast"
+                                            title={t('video.iframe_title')}
                                             frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen

@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
 import { MapPin } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Distribution = () => {
+    const { t } = useLanguage();
     return (
         <SectionWrapper
             id="distribuicao"
-            subtitle="MÓDULO 07"
-            title="Presença e Distribuição"
+            subtitle={t('distribution.badge')}
+            title={t('distribution.title')}
             dark={true}
         >
             <div style={{
@@ -23,10 +25,11 @@ const Distribution = () => {
                     transition={{ duration: 0.8 }}
                     style={{ maxWidth: '800px', marginBottom: '60px' }}
                 >
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '24px', color: 'white' }}>Atendimento estratégico e regional</h3>
+                    <h3 style={{ fontSize: '2.5rem', marginBottom: '24px', color: 'white' }}>{t('distribution.subtitle')}</h3>
                     <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.7' }}>
-                        Como um dos maiores distribuidores de garrafas sopradas da região, nossa logística foi desenhada para a eficiência.
-                        Direto de <strong>Maceió/AL</strong> para a linha de produção da sua empresa.
+                        {t('distribution.desc_part1')}
+                        <strong>{t('distribution.desc_highlight')}</strong>
+                        {t('distribution.desc_part2')}
                     </p>
                 </motion.div>
 
@@ -51,7 +54,7 @@ const Distribution = () => {
                 >
                     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <MapPin size={48} color="var(--color-accent)" fill="var(--color-accent)" fillOpacity={0.2} />
-                        <span style={{ color: 'white', fontWeight: 700, marginTop: '10px' }}>Maceió - AL</span>
+                        <span style={{ color: 'white', fontWeight: 700, marginTop: '10px' }}>{t('distribution.map_label')}</span>
                         <div style={{
                             width: '200px',
                             height: '200px',
@@ -64,7 +67,7 @@ const Distribution = () => {
                         }} />
                     </div>
                     <p style={{ position: 'absolute', bottom: '20px', color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' }}>
-                        Raio de atuação regional otimizado
+                        {t('distribution.map_hint')}
                     </p>
                 </motion.div>
             </div>

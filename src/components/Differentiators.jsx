@@ -1,27 +1,29 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
 import { Factory, Cpu, Box, FlaskConical } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Differentiators = () => {
+    const { t } = useLanguage();
     const cards = [
         {
-            title: "5.000 m²",
-            desc: "Parque Industrial",
+            title: t('differentiators.cards.area.title'),
+            desc: t('differentiators.cards.area.desc'),
             icon: <Factory />
         },
         {
-            title: "100%",
-            desc: "Automatizado",
+            title: t('differentiators.cards.automation.title'),
+            desc: t('differentiators.cards.automation.desc'),
             icon: <Cpu />
         },
         {
-            title: "150 Mi",
-            desc: "Produção/Ano",
+            title: t('differentiators.cards.production.title'),
+            desc: t('differentiators.cards.production.desc'),
             icon: <Box />
         },
         {
-            title: "Sopro",
-            desc: "Tecnologia PET/PEAD",
+            title: t('differentiators.cards.tech.title'),
+            desc: t('differentiators.cards.tech.desc'),
             icon: <FlaskConical />
         }
     ];
@@ -48,11 +50,11 @@ const Differentiators = () => {
 
                     {/* Headline */}
                     <div style={{ flex: 1 }}>
-                        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--color-brand-blue-dark)', marginBottom: '20px', fontWeight: 900, fontFamily: 'var(--font-heading)' }}>
-                            Infraestrutura<br />Robusta
+                        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--color-brand-blue-dark)', marginBottom: '20px', fontWeight: 900, fontFamily: 'var(--font-heading)', whiteSpace: 'pre-line' }}>
+                            {t('differentiators.title')}
                         </h2>
                         <p className="lead" style={{ maxWidth: '400px', fontSize: '1.2rem', color: '#64748b' }}>
-                            Maquinário 100% automatizado para garantir escala sem perder precisão.
+                            {t('differentiators.subtitle')}
                         </p>
                     </div>
 

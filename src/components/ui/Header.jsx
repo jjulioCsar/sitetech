@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useNavigate, useLocation } from 'react-router-dom';
 import logoImg from '../../assets/logo.png';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const { t } = useLanguage();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,6 +22,19 @@ const Header = () => {
 
     const scrollTo = (id) => {
         setMobileOpen(false);
+
+        // Se for clicar em artigos, usamos o React Router
+        if (id === 'artigos') {
+            navigate('/artigos');
+            return;
+        }
+
+        // Se estivermos em uma página diferente da Home, forçamos a volta para a Home na respectiva âncora
+        if (location.pathname !== '/') {
+            window.location.href = '/#' + id;
+            return;
+        }
+
         const el = document.getElementById(id);
         if (el) {
             // Compensate for fixed header height
@@ -35,13 +51,11 @@ const Header = () => {
 
     const navItems = [
         { label: t('footer.nav.inicio') || 'Início', id: 'inicio' },
-        { label: t('footer.nav.empresa'), id: 'dna' },
-        { label: t('footer.nav.diferenciais') || 'Pilares', id: 'strategy' },
-        { label: 'Vídeo', id: 'video' },
-        { label: t('footer.nav.produtos'), id: 'produtos' },
+        { label: t('footer.nav.empresa') || 'Empresa', id: 'dna' },
+        { label: t('footer.nav.produtos') || 'Produtos', id: 'produtos' },
         { label: t('footer.nav.customizacao') || 'Soluções', id: 'customizacao' },
-        { label: t('footer.nav.logistica'), id: 'logistica' },
-        { label: 'Localização', id: 'localizacao' }
+        { label: t('footer.nav.artigos') || 'Artigos', id: 'artigos' },
+        { label: t('footer.nav.localizacao') || 'Localização', id: 'localizacao' }
     ];
 
     return (

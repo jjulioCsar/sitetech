@@ -85,8 +85,60 @@ export const translations = {
                 produtos: "Produtos",
                 diferenciais: "Diferenciais",
                 customizacao: "Soluções",
-                logistica: "Logística"
+                logistica: "Logística",
+                artigos: "Artigos",
+                localizacao: "Localização"
             }
+        },
+        blog: {
+            badge: "Conteúdo Especializado",
+            title: "Artigos & Insights",
+            description: "Estratégia, eficiência industrial e inovação. Entenda como pensamos o mercado de embalagens e processos produtivos.",
+            category: "Gestão & Indústria",
+            read_more: "Ler Artigo",
+            back_button: "Voltar para Artigos",
+            by_author: "Por",
+            seo_title: "Artigos e Insights | Techplast Embalagens",
+            seo_desc: "Acompanhe os artigos, insights e inovações da Techplast sobre o setor industrial, embalagens PET e PEAD, eficiência e processos produtivos."
+        },
+        differentiators: {
+            title: "Infraestrutura\nRobusta",
+            subtitle: "Maquinário 100% automatizado para garantir escala sem perder precisão.",
+            cards: {
+                area: { title: "5.000 m²", desc: "Parque Industrial" },
+                automation: { title: "100%", desc: "Automatizado" },
+                production: { title: "150 Mi", desc: "Produção/Ano" },
+                tech: { title: "Sopro", desc: "Tecnologia PET/PEAD" }
+            }
+        },
+        distribution: {
+            badge: "MÓDULO 07",
+            title: "Presença e Distribuição",
+            subtitle: "Atendimento estratégico e regional",
+            desc_part1: "Como um dos maiores distribuidores de garrafas sopradas da região, nossa logística foi desenhada para a eficiência. Direto de ",
+            desc_highlight: "Maceió/AL",
+            desc_part2: " para a linha de produção da sua empresa.",
+            map_label: "Maceió - AL",
+            map_hint: "Raio de atuação regional otimizado"
+        },
+        location: {
+            badge: "Visite Nossa Fábrica",
+            title: "Onde Estamos",
+            desc: "Estamos localizados em um polo estratégico em Maceió/AL para garantir a melhor logística de escoamento e entrega em todo o Brasil.",
+            address_label: "Endereço Completo",
+            btn_app: "Abrir no Aplicativo",
+            map_aria: "Localização Techplast Maps"
+        },
+        video: {
+            title: "Clique Para Assistir",
+            desc: "Conheça a nossa história e produção",
+            aria_close: "Fechar Vídeo",
+            iframe_title: "Vídeo Institucional Techplast"
+        },
+        notfound: {
+            title: "Página não encontrada",
+            desc: "A página que você está procurando pode ter sido removida, mudou de nome ou está temporariamente indisponível.",
+            btn: "Voltar ao início"
         }
     },
     en: {
@@ -175,8 +227,60 @@ export const translations = {
                 produtos: "Products",
                 diferenciais: "Differences",
                 customizacao: "Solutions",
-                logistica: "Logistics"
+                logistica: "Logistics",
+                artigos: "Articles",
+                localizacao: "Location"
             }
+        },
+        blog: {
+            badge: "Specialized Content",
+            title: "Articles & Insights",
+            description: "Strategy, industrial efficiency, and innovation. Understand how we think about the packaging market and production processes.",
+            category: "Management & Industry",
+            read_more: "Read Article",
+            back_button: "Back to Articles",
+            by_author: "By",
+            seo_title: "Articles and Insights | Techplast Packaging",
+            seo_desc: "Follow Techplast's articles, insights, and innovations on the industrial sector, PET and HDPE packaging, efficiency, and production processes."
+        },
+        differentiators: {
+            title: "Robust\nInfrastructure",
+            subtitle: "100% automated machinery to ensure scale without losing precision.",
+            cards: {
+                area: { title: "5.000 m²", desc: "Industrial Park" },
+                automation: { title: "100%", desc: "Automated" },
+                production: { title: "150 M", desc: "Production/Year" },
+                tech: { title: "Blowing", desc: "PET/HDPE Technology" }
+            }
+        },
+        distribution: {
+            badge: "MODULE 07",
+            title: "Presence and Distribution",
+            subtitle: "Strategic and regional service",
+            desc_part1: "As one of the largest blown bottle distributors in the region, our logistics were designed for efficiency. Straight from ",
+            desc_highlight: "Maceió/AL",
+            desc_part2: " to your company's production line.",
+            map_label: "Maceió - AL",
+            map_hint: "Optimized regional acting radius"
+        },
+        location: {
+            badge: "Visit Our Factory",
+            title: "Where We Are",
+            desc: "We are located in a strategic hub in Maceió/AL to ensure the best logistics and delivery throughout Brazil.",
+            address_label: "Full Address",
+            btn_app: "Open in App",
+            map_aria: "Techplast Location Maps"
+        },
+        video: {
+            title: "Click to Watch",
+            desc: "Discover our history and production",
+            aria_close: "Close Video",
+            iframe_title: "Techplast Institutional Video"
+        },
+        notfound: {
+            title: "Page not found",
+            desc: "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+            btn: "Back to Home"
         }
     }
 };

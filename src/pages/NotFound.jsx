@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const NotFound = () => {
+    const { t } = useLanguage();
     return (
         <div style={{
             minHeight: '100vh',
@@ -64,7 +66,7 @@ const NotFound = () => {
                         marginBottom: '20px'
                     }}
                 >
-                    Página não encontrada
+                    {t('notfound.title')}
                 </motion.h2>
 
                 <motion.p
@@ -77,7 +79,7 @@ const NotFound = () => {
                         marginBottom: '40px'
                     }}
                 >
-                    Oops! Parece que a página que você está procurando não existe ou foi movida.
+                    {t('notfound.desc')}
                 </motion.p>
 
                 <motion.div
@@ -140,7 +142,7 @@ const NotFound = () => {
                             }}
                         >
                             <Home size={20} />
-                            Ir para o Início
+                            {t('notfound.btn')}
                         </button>
                     </Link>
                 </motion.div>

@@ -30,6 +30,8 @@ import LocationMap from './components/LocationMap'
 import { Footer, HumanCapital } from './components/FooterComponents'
 import FloatingButtons from './components/ui/FloatingButtons'
 import NotFound from './pages/NotFound'
+import Artigos from './pages/Artigos'
+import ArtigoPost from './pages/ArtigoPost'
 
 // Assets
 import logoImg from './assets/logo.png'
@@ -103,6 +105,28 @@ function App() {
                 <HumanCapital />
               </main>
 
+              <Footer />
+            </div>
+          } />
+          <Route path="/artigos" element={
+            <div className="app-container" style={{ position: 'relative', overflow: 'hidden' }}>
+              <LanguageSwitcher />
+              <FloatingButtons />
+              <Header />
+              <main style={{ position: 'relative', zIndex: 1, marginTop: '0px' }}>
+                <Artigos />
+              </main>
+              <Footer />
+            </div>
+          } />
+          <Route path="/artigos/:id" element={
+            <div className="app-container" style={{ position: 'relative', overflow: 'hidden' }}>
+              <LanguageSwitcher />
+              <FloatingButtons />
+              <Header />
+              <main style={{ position: 'relative', zIndex: 1, marginTop: '0px' }}>
+                <ArtigoPost />
+              </main>
               <Footer />
             </div>
           } />
