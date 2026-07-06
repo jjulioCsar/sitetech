@@ -10,7 +10,7 @@ export const translations = {
         market: {
             badge: "Apresentação Institucional",
             title: "O DNA da Marca",
-            description: "Nossa missão é oferecer soluções eficientes e personalizadas em embalagens, garantindo a total satisfação dos nossos clientes. A <strong>Techplast</strong> nasceu com o compromisso de proteger a integridade do seu produto por meio de materiais seguros, resistentes e sustentáveis."
+            description: "Nossa missão é oferecer soluções eficientes e personalizadas em embalagens, garantindo a total satisfação dos nossos clientes. A <strong>Tech Plast</strong> nasceu com o compromisso de proteger a integridade do seu produto por meio de materiais seguros, resistentes e sustentáveis."
         },
         pillars: {
             badge: "Tecnologia e Know-how",
@@ -63,14 +63,14 @@ export const translations = {
             dist_desc: "Como um dos principais hubs de embalagens do Nordeste, nossa logística atende todo o Brasil com agilidade.",
             own_fleet_label: "Logística Própria",
             own_fleet_title: "Excelência em cada quilômetro.",
-            own_fleet_p1: "Entendemos que a embalagem é o último passo antes do seu produto chegar ao consumidor, e o cumprimento de prazos é vital para o sucesso do seu negócio. Por isso, a <strong>Techplast</strong> não terceiriza a sua tranquilidade.",
+            own_fleet_p1: "Entendemos que a embalagem é o último passo antes do seu produto chegar ao consumidor, e o cumprimento de prazos é vital para o sucesso do seu negócio. Por isso, a <strong>Tech Plast</strong> não terceiriza a sua tranquilidade.",
             own_fleet_p2: "Com uma frota própria de mais de 40 caminhões e uma equipe de motoristas rigorosamente treinados, especializados no manuseio de produtos plásticos. Esse controle total sobre a distribuição nos permite garantir que cada pedido chegue à sua fábrica com integridade absoluta, sem avarias e rigorosamente dentro do cronograma combinado.",
             own_fleet_highlight: "Mais que uma entrega, oferecemos a segurança de que sua operação nunca irá parar."
         },
         human: {
             badge: "Capital Humano",
             title: "Inteligência por trás das máquinas.",
-            description: "O nosso maior diferencial não é feito de plástico, mas de pessoas. A Techplast conta com uma equipe altamente capacitada, pronta para oferecer suporte integral desde o primeiro contato comercial até o desenvolvimento final do seu envase."
+            description: "O nosso maior diferencial não é feito de plástico, mas de pessoas. A Tech Plast conta com uma equipe altamente capacitada, pronta para oferecer suporte integral desde o primeiro contato comercial até o desenvolvimento final do seu envase."
         },
         footer: {
             about_title: "Sobre Nós",
@@ -86,20 +86,20 @@ export const translations = {
                 diferenciais: "Diferenciais",
                 customizacao: "Soluções",
                 logistica: "Logística",
-                artigos: "Artigos",
+                blog: "Blog",
                 localizacao: "Localização"
             }
         },
         blog: {
             badge: "Conteúdo Especializado",
-            title: "Artigos & Insights",
+            title: "Blog & Insights",
             description: "Estratégia, eficiência industrial e inovação. Entenda como pensamos o mercado de embalagens e processos produtivos.",
             category: "Gestão & Indústria",
             read_more: "Ler Artigo",
-            back_button: "Voltar para Artigos",
+            back_button: "Voltar para o Blog",
             by_author: "Por",
-            seo_title: "Artigos e Insights | Techplast Embalagens",
-            seo_desc: "Acompanhe os artigos, insights e inovações da Techplast sobre o setor industrial, embalagens PET e PEAD, eficiência e processos produtivos."
+            seo_title: "Blog e Insights | Tech Plast Embalagens",
+            seo_desc: "Acompanhe os blog, insights e inovações da Tech Plast sobre o setor industrial, embalagens PET e PEAD, eficiência e processos produtivos."
         },
         differentiators: {
             title: "Infraestrutura\nRobusta",
@@ -127,13 +127,13 @@ export const translations = {
             desc: "Estamos localizados em um polo estratégico em Maceió/AL para garantir a melhor logística de escoamento e entrega em todo o Brasil.",
             address_label: "Endereço Completo",
             btn_app: "Abrir no Aplicativo",
-            map_aria: "Localização Techplast Maps"
+            map_aria: "Localização Tech Plast Maps"
         },
         video: {
             title: "Clique Para Assistir",
             desc: "Conheça a nossa história e produção",
             aria_close: "Fechar Vídeo",
-            iframe_title: "Vídeo Institucional Techplast"
+            iframe_title: "Vídeo Institucional Tech Plast"
         },
         notfound: {
             title: "Página não encontrada",
@@ -152,7 +152,7 @@ export const translations = {
         market: {
             badge: "Institutional Presentation",
             title: "The Brand DNA",
-            description: "Our mission is to offer efficient and customized packaging solutions, ensuring the total satisfaction of our clients. <strong>Techplast</strong> was born with the commitment to protect your product's integrity through safe, resistant, and sustainable materials."
+            description: "Our mission is to offer efficient and customized packaging solutions, ensuring the total satisfaction of our clients. <strong>Tech Plast</strong> was born with the commitment to protect your product's integrity through safe, resistant, and sustainable materials."
         },
         pillars: {
             badge: "Technology and Know-how",
@@ -205,14 +205,14 @@ export const translations = {
             dist_desc: "As one of the main packaging hubs in the Northeast, our logistics serves all of Brazil with agility.",
             own_fleet_label: "Own Logistics",
             own_fleet_title: "Excellence in every mile.",
-            own_fleet_p1: "We understand that packaging is the last step before your product reaches the consumer, and meeting deadlines is vital for your business's success. That's why <strong>Techplast</strong> doesn't outsource your peace of mind.",
+            own_fleet_p1: "We understand that packaging is the last step before your product reaches the consumer, and meeting deadlines is vital for your business's success. That's why <strong>Tech Plast</strong> doesn't outsource your peace of mind.",
             own_fleet_p2: "With our own fleet of over 40 trucks and a team of rigorously trained drivers specializing in handling plastic products. This total control over distribution allows us to ensure that every order reaches your factory with absolute integrity, without damage and strictly within the agreed-upon schedule.",
             own_fleet_highlight: "More than just a delivery, we offer the security that your operation will never stop."
         },
         human: {
             badge: "Human Capital",
             title: "Intelligence behind the machines.",
-            description: "Our greatest differentiator is not made of plastic, but of people. Techplast has a highly trained team, ready to offer full support from the first commercial contact to the final development of your packaging."
+            description: "Our greatest differentiator is not made of plastic, but of people. Tech Plast has a highly trained team, ready to offer full support from the first commercial contact to the final development of your packaging."
         },
         footer: {
             about_title: "About Us",
@@ -228,7 +228,7 @@ export const translations = {
                 diferenciais: "Differences",
                 customizacao: "Solutions",
                 logistica: "Logistics",
-                artigos: "Articles",
+                blog: "Blog",
                 localizacao: "Location"
             }
         },
@@ -240,8 +240,8 @@ export const translations = {
             read_more: "Read Article",
             back_button: "Back to Articles",
             by_author: "By",
-            seo_title: "Articles and Insights | Techplast Packaging",
-            seo_desc: "Follow Techplast's articles, insights, and innovations on the industrial sector, PET and HDPE packaging, efficiency, and production processes."
+            seo_title: "Blog and Insights | Tech Plast Packaging",
+            seo_desc: "Follow Tech Plast's articles, insights, and innovations on the industrial sector, PET and HDPE packaging, efficiency, and production processes."
         },
         differentiators: {
             title: "Robust\nInfrastructure",
@@ -269,13 +269,13 @@ export const translations = {
             desc: "We are located in a strategic hub in Maceió/AL to ensure the best logistics and delivery throughout Brazil.",
             address_label: "Full Address",
             btn_app: "Open in App",
-            map_aria: "Techplast Location Maps"
+            map_aria: "Tech Plast Location Maps"
         },
         video: {
             title: "Click to Watch",
             desc: "Discover our history and production",
             aria_close: "Close Video",
-            iframe_title: "Techplast Institutional Video"
+            iframe_title: "Tech Plast Institutional Video"
         },
         notfound: {
             title: "Page not found",
@@ -284,3 +284,4 @@ export const translations = {
         }
     }
 };
+

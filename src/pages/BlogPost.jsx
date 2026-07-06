@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
-import { artigosData } from '../data/artigosData';
+import { blogData } from '../data/blogData';
 import { useLanguage } from '../context/LanguageContext';
 
-const ArtigoPost = () => {
+const BlogPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { t, lang } = useLanguage();
@@ -19,9 +19,9 @@ const ArtigoPost = () => {
     // Scrolla para o topo sempre que entra no post
     window.scrollTo(0, 0);
 
-    const foundArtigo = artigosData.find(a => a.id === id);
+    const foundArtigo = blogData.find(a => a.id === id);
     if (!foundArtigo) {
-      navigate('/artigos');
+      navigate('/blog');
       return;
     }
     setArtigoObj(foundArtigo);
@@ -31,29 +31,57 @@ const ArtigoPost = () => {
     if (!artigoObj) return;
     
     const artigo = artigoObj[lang] || artigoObj.pt;
+    const articleUrl = `https://techplastembalagens.com.br/blog/${artigoObj.id}`;
+    const ogImageUrl = 'https://techplastembalagens.com.br/og-image.jpg';
 
-    // Injeção de Meta Tags (Backend/SEO)
+    // ===== TITLE =====
     document.title = `${artigo.title} | Techplast`;
-    
-    // Atualiza a meta tag de keywords
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.name = "keywords";
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.content = artigo.keywords;
 
-    // Atualiza a meta tag de description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = "description";
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.content = artigo.excerpt;
+    // ===== Helper: criar ou atualizar meta tag =====
+    const setMeta = (attr, attrValue, content) => {
+      let tag = document.querySelector(`meta[${attr}="${attrValue}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute(attr, attrValue);
+        document.head.appendChild(tag);
+      }
+      tag.content = content;
+      return tag;
+    };
 
-    // JSON-LD Estruturado do tipo 'Article' para AI/Google
+    // ===== META TAGS BÁSICAS =====
+    const metaDesc = setMeta('name', 'description', artigo.excerpt);
+    const metaKeywords = setMeta('name', 'keywords', artigo.keywords);
+    const metaRobots = setMeta('name', 'robots', 'index, follow, max-snippet:-1, max-image-preview:large');
+    const metaAuthor = setMeta('name', 'author', artigoObj.author);
+
+    // ===== OPEN GRAPH (Facebook, LinkedIn, WhatsApp) =====
+    const ogTitle = setMeta('property', 'og:title', artigo.title);
+    const ogDesc = setMeta('property', 'og:description', artigo.excerpt);
+    const ogUrl = setMeta('property', 'og:url', articleUrl);
+    const ogType = setMeta('property', 'og:type', 'article');
+    const ogImage = setMeta('property', 'og:image', ogImageUrl);
+    const ogSiteName = setMeta('property', 'og:site_name', 'Techplast Embalagens');
+    const ogLocale = setMeta('property', 'og:locale', lang === 'pt' ? 'pt_BR' : 'en_US');
+    const articlePublished = setMeta('property', 'article:published_time', artigoObj.dateISO);
+    const articleAuthorMeta = setMeta('property', 'article:author', artigoObj.author);
+
+    // ===== TWITTER CARD =====
+    const twCard = setMeta('name', 'twitter:card', 'summary_large_image');
+    const twTitle = setMeta('name', 'twitter:title', artigo.title);
+    const twDesc = setMeta('name', 'twitter:description', artigo.excerpt);
+    const twImage = setMeta('name', 'twitter:image', ogImageUrl);
+
+    // ===== CANONICAL URL =====
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = articleUrl;
+
+    // ===== JSON-LD Estruturado (Google / AI / Rich Snippets) =====
     const existingJsonLd = document.getElementById('article-json-ld');
     if (existingJsonLd) existingJsonLd.remove();
     
@@ -65,6 +93,7 @@ const ArtigoPost = () => {
       "@type": "Article",
       "headline": artigo.title,
       "description": artigo.excerpt,
+      "keywords": artigo.keywords,
       "author": {
         "@type": "Organization",
         "name": artigoObj.author
@@ -74,21 +103,33 @@ const ArtigoPost = () => {
         "name": "Techplast Embalagens",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://techplastembalagens.com.br/og-image.jpg"
+          "url": ogImageUrl
         }
       },
-      "datePublished": "2026-04-28",
+      "datePublished": artigoObj.dateISO,
+      "dateModified": artigoObj.dateISO,
+      "image": ogImageUrl,
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://techplastembalagens.com.br/artigos/${artigoObj.id}`
-      }
+        "@id": articleUrl
+      },
+      "inLanguage": lang === 'pt' ? 'pt-BR' : 'en-US'
     });
     document.head.appendChild(script);
 
+    // ===== LIMPEZA na saída =====
     return () => {
-      // Limpeza na saída
       document.title = "Techplast | Soluções em Embalagens PET e PEAD";
-      if (existingJsonLd) existingJsonLd.remove();
+      const jsonLd = document.getElementById('article-json-ld');
+      if (jsonLd) jsonLd.remove();
+      // Remove metas OG / Twitter adicionadas
+      [ogTitle, ogDesc, ogUrl, ogType, ogImage, ogSiteName, ogLocale,
+       articlePublished, articleAuthorMeta,
+       twCard, twTitle, twDesc, twImage,
+       metaRobots, metaAuthor].forEach(tag => {
+        if (tag && tag.parentNode) tag.parentNode.removeChild(tag);
+      });
+      if (canonical && canonical.parentNode) canonical.parentNode.removeChild(canonical);
     };
   }, [artigoObj, lang]);
 
@@ -113,7 +154,7 @@ const ArtigoPost = () => {
         
         {/* Botão Voltar */}
         <Link 
-          to="/artigos" 
+          to="/blog" 
           style={{ 
             display: 'inline-flex', 
             alignItems: 'center', 
@@ -133,6 +174,10 @@ const ArtigoPost = () => {
         {/* Cabeçalho do Artigo */}
         <header style={{ marginBottom: '50px' }}>
           <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap' }}>
+            <span style={{ color: 'var(--color-brand-green)', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              {artigoObj.category || t('blog.category')}
+            </span>
+            <span style={{ color: '#cbd5e1' }}>•</span>
             <span style={{ color: '#64748b', fontWeight: 600, fontSize: '0.9rem' }}>{artigo.date}</span>
             <span style={{ color: '#cbd5e1' }}>•</span>
             <span style={{ color: '#64748b', fontWeight: 600, fontSize: '0.9rem' }}>{t('blog.by_author')} {artigoObj.author}</span>
@@ -195,7 +240,7 @@ const ArtigoPost = () => {
             lineHeight: 1.8, 
             color: '#334155' 
           }}
-          dangerouslySetInnerHTML={{ __html: artigo.content.replace(/### (.*?)(?:\r\n|\n)/g, '<h3 style="color: var(--color-brand-blue-dark); font-size: 1.8rem; font-weight: 800; margin-top: 50px; margin-bottom: 20px;">$1</h3>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/(?:\r\n|\n){2,}/g, '<br/><br/>') }}
+          dangerouslySetInnerHTML={{ __html: artigo.content.replace(/### (.*?)(?:\r\n|\n)/g, '<h3 style="color: var(--color-brand-blue-dark); font-size: 1.8rem; font-weight: 800; margin-top: 50px; margin-bottom: 20px;">$1</h3>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-blue-light); text-decoration: underline; font-weight: bold;">$1</a>').replace(/(?:\r\n|\n){2,}/g, '<br/><br/>') }}
         />
 
       </article>
@@ -239,4 +284,4 @@ const ArtigoPost = () => {
   );
 };
 
-export default ArtigoPost;
+export default BlogPost;

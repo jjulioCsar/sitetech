@@ -1,7 +1,27 @@
+# ======================== MIME TYPES ========================
+# Garante que o Apache sirva os arquivos com o MIME type correto
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType image/png .png
+  AddType image/jpeg .jpg .jpeg
+  AddType application/json .json
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+# ======================== SPA ROUTING ========================
+# Redireciona rotas do React para o index.html (exceto arquivos reais)
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
+  
+  # Força o servidor a nunca redirecionar requisições para a pasta de assets
+  RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+  
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l

@@ -23,9 +23,9 @@ const Header = () => {
     const scrollTo = (id) => {
         setMobileOpen(false);
 
-        // Se for clicar em artigos, usamos o React Router
-        if (id === 'artigos') {
-            navigate('/artigos');
+        // Se for clicar em blog, usamos o React Router
+        if (id === 'blog') {
+            navigate('/blog');
             return;
         }
 
@@ -54,7 +54,7 @@ const Header = () => {
         { label: t('footer.nav.empresa') || 'Empresa', id: 'dna' },
         { label: t('footer.nav.produtos') || 'Produtos', id: 'produtos' },
         { label: t('footer.nav.customizacao') || 'Soluções', id: 'customizacao' },
-        { label: t('footer.nav.artigos') || 'Artigos', id: 'artigos' },
+        { label: t('footer.nav.blog') || 'Blog', id: 'blog' },
         { label: t('footer.nav.localizacao') || 'Localização', id: 'localizacao' }
     ];
 

@@ -19,15 +19,15 @@ export const HumanCapital = () => {
 
     const muralImages = [
         { src: mural1, alt: "Eduardo - Comercial", rotate: true },
-        { src: mural2, alt: "Equipe Techplast 2" },
-        { src: mural3, alt: "Equipe Techplast 3" },
+        { src: mural2, alt: "Equipe Tech Plast 2" },
+        { src: mural3, alt: "Equipe Tech Plast 3" },
         { src: mural4, alt: "Katiucia - Qualidade" },
-        { src: mural5, alt: "Equipe Techplast 5" },
-        { src: mural6, alt: "Equipe Techplast 6" },
-        { src: mural7, alt: "Equipe Techplast 7" },
+        { src: mural5, alt: "Equipe Tech Plast 5" },
+        { src: mural6, alt: "Equipe Tech Plast 6" },
+        { src: mural7, alt: "Equipe Tech Plast 7" },
         { src: mural12, alt: "Luciano - Comercial" },
-        { src: mural9, alt: "Equipe Techplast 9" },
-        { src: mural10, alt: "Equipe Techplast 10" },
+        { src: mural9, alt: "Equipe Tech Plast 9" },
+        { src: mural10, alt: "Equipe Tech Plast 10" },
         { src: mural11, alt: "Heleno" }
     ];
 
@@ -142,7 +142,7 @@ export const Footer = () => {
                     <div style={{ flex: 1.5 }}>
                         <h4 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--color-brand-green)', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '20px' }}>{t('footer.about_title')}</h4>
                         <div style={{ display: 'grid', gap: '8px', opacity: 0.8, fontSize: '0.95rem', lineHeight: 1.6 }}>
-                            <p style={{ fontWeight: 700, color: 'white' }}>Techplast Industria e Comercio de Plasticos LTDA.</p>
+                            <p style={{ fontWeight: 700, color: 'white' }}>Tech Plast Industria e Comercio de Plasticos LTDA.</p>
                             <p>CNPJ: 06.143.647/0002-30</p>
                             <p>
                                 {t('footer.address')}<br />
@@ -211,7 +211,7 @@ export const Footer = () => {
 
                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
                     <p style={{ opacity: 0.4, fontSize: '0.9rem' }}>
-                        © {new Date().getFullYear()} Techplast. {t('footer.rights')}
+                        © {new Date().getFullYear()} Tech Plast. {t('footer.rights')}
                     </p>
                     <a href="https://www.portfolio.juliocesar.site" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', transition: 'opacity 0.3s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
                         <img src={logoMarcaBranca} alt="Júlio César - Desenvolvedor" style={{ height: '70px', width: 'auto', objectFit: 'contain' }} />
